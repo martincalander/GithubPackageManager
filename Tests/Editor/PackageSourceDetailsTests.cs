@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace MartinCalander.GitSubmoduleManager.Editor.Tests
+namespace MartinCalander.GithubPackageManager.Editor.Tests
 {
     [Category("PackageSourceFeatures")]
     public sealed class PackageSourceDetailsTests

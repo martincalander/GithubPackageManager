@@ -1,6 +1,6 @@
 # Project Governance
 
-Git Submodule Manager is an open-source project led by Martin Calander. This
+Github Package Manager is an open-source project led by Martin Calander. This
 document explains how project decisions are made and how responsibility is
 shared. Participation is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -21,7 +21,7 @@ The `main` branch develops this focused design. Explicit installation,
 fast-forward updates, and removal of verified submodule packages are its only
 package changes. Conversion and dependency resolution belong to Unity and Git. The former
 management workflows are preserved on
-[`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy);
+[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy);
 published `0.8.1` artifacts still contain that earlier implementation.
 
 ## Roles

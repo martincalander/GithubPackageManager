@@ -5,7 +5,7 @@ using System.Reflection;
 using NUnit.Framework;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor.Tests
+namespace MartinCalander.GithubPackageManager.Editor.Tests
 {
     [Category("PackageSourceFeatures")]
     public sealed class PackageStatusPresentationTests
@@ -200,7 +200,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
             var root = new NativeRootStub();
             root.pageManager.activePage = new NativePageStub { id = "InProject" };
             const BindingFlags instance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-            System.Type sessionType = typeof(GitSubmoduleManagerPackageManagerHost)
+            System.Type sessionType = typeof(GithubPackageManagerPackageManagerHost)
                 .GetNestedType("Session", BindingFlags.NonPublic);
             object session = System.Activator.CreateInstance(sessionType, instance, null, new object[] { root }, null);
             try

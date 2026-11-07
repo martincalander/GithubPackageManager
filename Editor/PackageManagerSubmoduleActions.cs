@@ -13,7 +13,7 @@ using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
 #if UNITY_6000_5_OR_NEWER
     [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]

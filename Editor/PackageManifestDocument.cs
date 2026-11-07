@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
     // A small strict JSON reader retains source spans so removing one dependency preserves other settings.
     internal sealed class PackageManifestDocument

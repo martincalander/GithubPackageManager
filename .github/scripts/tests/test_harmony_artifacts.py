@@ -21,7 +21,7 @@ class HarmonyArtifactTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
-        self.relative = "ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll"
+        self.relative = "ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll"
         self.dll = self.root / self.relative
         self.dll.parent.mkdir(parents=True)
         self.dll.write_bytes(b"MZfixture")
@@ -97,7 +97,7 @@ class HarmonyCecilDependencyTests(unittest.TestCase):
         manifest_path = ".github/scripts/coreclr_harmony_artifacts.json"
         artifacts = json.loads((source_root / manifest_path).read_text())["artifacts"]
         coreclr_meta = (source_root / (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll.meta"
+            "ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll.meta"
         )).read_text()
         for artifact in artifacts:
             relative = artifact["plugin"]
@@ -108,9 +108,9 @@ class HarmonyCecilDependencyTests(unittest.TestCase):
         for relative in (
             manifest_path,
             "Third Party Notices.md",
-            "ThirdParty/GitSubmoduleManager.Harmony.dll",
-            "ThirdParty/GitSubmoduleManager.Harmony.dll.meta",
-            "Editor/MartinCalander.GitSubmoduleManager.Editor.asmdef",
+            "ThirdParty/GithubPackageManager.Harmony.dll",
+            "ThirdParty/GithubPackageManager.Harmony.dll.meta",
+            "Editor/MartinCalander.GithubPackageManager.Editor.asmdef",
         ):
             destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -132,7 +132,7 @@ class HarmonyCecilDependencyTests(unittest.TestCase):
             with self.subTest(companion=companion):
                 self.errors.clear()
                 relative = (
-                    "ThirdParty/CoreCLR/GitSubmoduleManager."
+                    "ThirdParty/CoreCLR/GithubPackageManager."
                     f"Mono.Cecil.{companion}.dll"
                 )
                 dll = self.root / relative

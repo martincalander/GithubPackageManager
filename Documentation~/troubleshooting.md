@@ -172,7 +172,7 @@ view does not manage credentials.
 
 ## Reporting a Problem
 
-Follow the [support guide](https://github.com/martincalander/GitSubmoduleForUnity/blob/main/.github/SUPPORT.md).
+Follow the [support guide](https://github.com/martincalander/Githubpackagemanager/blob/main/.github/SUPPORT.md).
 Include the exact Unity version, operating system, package commit, expected
 package status, actual status, and sanitized Console output. State whether you
 are using `main`, `legacy`, or a published release. Published `0.8.1` artifacts

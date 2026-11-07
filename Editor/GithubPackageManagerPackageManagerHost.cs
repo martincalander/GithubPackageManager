@@ -5,7 +5,7 @@ using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
 #if UNITY_6000_5_OR_NEWER
     // Package Manager sessions belong to the Editor, including while Play mode is active.
@@ -13,7 +13,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
 #else
     [InitializeOnLoad]
 #endif
-    internal static partial class GitSubmoduleManagerPackageManagerHost
+    internal static partial class GithubPackageManagerPackageManagerHost
     {
         internal const string WindowTypeName = "UnityEditor.PackageManager.UI.PackageManagerWindow";
         private const string RootTypeName = "UnityEditor.PackageManager.UI.Internal.PackageManagerWindowRoot";
@@ -136,7 +136,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
 #if UNITY_6000_5_OR_NEWER
         [Unity.Scripting.LifecycleManagement.OnCodeInitializing]
 #else
-        static GitSubmoduleManagerPackageManagerHost() => Start();
+        static GithubPackageManagerPackageManagerHost() => Start();
         [DidReloadScripts]
 #endif
         private static void Start()

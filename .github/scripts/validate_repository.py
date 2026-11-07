@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the Git Submodule Manager UPM repository and release metadata."""
+"""Validate the Github Package Manager UPM repository and release metadata."""
 
 from __future__ import annotations
 
@@ -97,10 +97,10 @@ def check_package_json() -> None:
     if missing:
         fail(f"package.json missing fields: {', '.join(missing)}")
 
-    if package.get("name") != "com.martincalander.gitsubmodulemanager":
-        fail("package.json name must be com.martincalander.gitsubmodulemanager")
-    if package.get("displayName") != "Git Submodule Manager":
-        fail("package.json displayName must be Git Submodule Manager")
+    if package.get("name") != "com.martincalander.githubpackagemanager":
+        fail("package.json name must be com.martincalander.githubpackagemanager")
+    if package.get("displayName") != "Github Package Manager":
+        fail("package.json displayName must be Github Package Manager")
     version = str(package.get("version", ""))
     if not parse_semver(version):
         fail("package.json version is not valid SemVer 2.0.0")
@@ -152,17 +152,17 @@ def check_required_files() -> None:
         "Documentation~/troubleshooting.md",
         "Documentation~/architecture.md",
         "Documentation~/roadmap.md",
-        "Documentation~/Images/GitSubmoduleManagerCover.png",
-        "Editor/MartinCalander.GitSubmoduleManager.Editor.asmdef",
+        "Documentation~/Images/GithubPackageManagerCover.png",
+        "Editor/MartinCalander.GithubPackageManager.Editor.asmdef",
         "Editor/GitEditorWindowIcon.png",
         "Editor/GitEditorWindowIconLight.png",
         "ThirdParty.meta",
-        "ThirdParty/GitSubmoduleManager.Harmony.dll",
-        "ThirdParty/GitSubmoduleManager.Harmony.dll.meta",
+        "ThirdParty/GithubPackageManager.Harmony.dll",
+        "ThirdParty/GithubPackageManager.Harmony.dll.meta",
         "ThirdParty/CoreCLR.meta",
-        "ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll",
-        "ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll.meta",
-        "Tests/Editor/MartinCalander.GitSubmoduleManager.Editor.Tests.asmdef",
+        "ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll",
+        "ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll.meta",
+        "Tests/Editor/MartinCalander.GithubPackageManager.Editor.Tests.asmdef",
         ".github/workflows/ci.yml",
         ".github/workflows/release.yml",
         ".github/scripts/coreclr_harmony_artifacts.json",
@@ -243,15 +243,15 @@ def check_editor_only_layout() -> None:
 
 
 def check_assembly_identities() -> None:
-    editor_name = "MartinCalander.GitSubmoduleManager.Editor"
+    editor_name = "MartinCalander.GithubPackageManager.Editor"
     tests_name = f"{editor_name}.Tests"
     editor = read_json(ROOT / "Editor" / f"{editor_name}.asmdef")
     tests = read_json(ROOT / "Tests" / "Editor" / f"{tests_name}.asmdef")
 
     if editor.get("name") != editor_name or editor.get("rootNamespace") != editor_name:
-        fail("Editor assembly name and rootNamespace must use the GitSubmoduleManager identity")
+        fail("Editor assembly name and rootNamespace must use the GithubPackageManager identity")
     if tests.get("name") != tests_name or tests.get("rootNamespace") != tests_name:
-        fail("Test assembly name and rootNamespace must use the GitSubmoduleManager identity")
+        fail("Test assembly name and rootNamespace must use the GithubPackageManager identity")
     if editor_name not in (tests.get("references") or []):
         fail("Test assembly must reference the renamed editor assembly")
 
@@ -259,73 +259,73 @@ def check_assembly_identities() -> None:
 def check_harmony_plugin_contract() -> None:
     variants = (
         (
-            "ThirdParty/GitSubmoduleManager.Harmony.dll",
+            "ThirdParty/GithubPackageManager.Harmony.dll",
             "Harmony 2.4.1",
             "353daafec180bb8e7bbe4da78f2a7cdc78067392e3a4e79dc8e7af295f2371e6",
             "!ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll",
             "HarmonyX 2.16.1",
             "70e7647876b6c3d874ea99b56627a95d1dce2e1dd791981a002578a2febc9bbd",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.RuntimeDetour.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.RuntimeDetour.dll",
             "MonoMod.RuntimeDetour 25.3.4",
             "c186cc37e3cc3368540d0c2857b20c4f59cd1ddfe5c58c460f69a76a3e68c42d",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Core.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Core.dll",
             "MonoMod.Core 1.3.4",
             "6b06ad52612efd0534660f9ff4b68dcee685f5d604ff6ebe281f9041329c4376",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Iced.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Iced.dll",
             "MonoMod.Iced 1.3.4",
             "42d9fc0cc12b37a61c832fca5768f62bd4d429890d34ba5c1acc30e150a99ffe",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Utils.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Utils.dll",
             "MonoMod.Utils 25.0.12",
             "19f8df7d0d8ab311ad7f3a134beb82a87d4f1d26f9708b0bdd653f787dbf21a0",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Backports.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Backports.dll",
             "MonoMod.Backports 1.1.2",
             "b3fc7aac52ffe6579ae1009a285a3d892b167151b0e18b5c1066ccb88e8b44a4",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.ILHelpers.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.ILHelpers.dll",
             "MonoMod.ILHelpers 1.1.0",
             "a13590452f2bdf72718f43b410f43e110f273fce57fabd58ac5043a59b9be049",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.dll",
             "Mono.Cecil 0.11.6",
             "831dca77470d85cb6ffbea3072daa7a3df5b7c9fcfd9c3f43674a9be99d4bfcf",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Mdb.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Mdb.dll",
             "Mono.Cecil.Mdb 0.11.6",
             "28cb367972bdc1cd43e4006306af2fd96d37f4ed4b239ee90e1dc7237a93af7f",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Pdb.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Pdb.dll",
             "Mono.Cecil.Pdb 0.11.6",
             "a332332633fbcb20e8d50e49b4db7bd1557721417122cf0c5f4c42f2332391d0",
             "ENABLE_CORECLR",
         ),
         (
-            "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Rocks.dll",
+            "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Rocks.dll",
             "Mono.Cecil.Rocks 0.11.6",
             "bf992f3dce364ebcc3200fa7832ef07e20b4e2dbc3a8a6213ce44e3d239db984",
             "ENABLE_CORECLR",
@@ -356,11 +356,11 @@ def check_harmony_plugin_contract() -> None:
             fail("CoreCLR artifact provenance must identify the exact NuGet archive and hash")
 
     editor = read_json(
-        ROOT / "Editor" / "MartinCalander.GitSubmoduleManager.Editor.asmdef"
+        ROOT / "Editor" / "MartinCalander.GithubPackageManager.Editor.asmdef"
     )
     if editor.get("overrideReferences") is not True:
         fail("Editor assembly must explicitly override precompiled references")
-    if "GitSubmoduleManager.Harmony.dll" not in (editor.get("precompiledReferences") or []):
+    if "GithubPackageManager.Harmony.dll" not in (editor.get("precompiledReferences") or []):
         fail("Editor assembly must explicitly reference the bundled Harmony plugin")
 
 

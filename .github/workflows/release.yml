@@ -100,7 +100,7 @@ jobs:
         run: |
           package_name="$(jq -er '.name' package.json)"
           package_version="$(jq -er '.version' package.json)"
-          if [[ "$package_name" != "com.martincalander.gitsubmodulemanager" ]]; then
+          if [[ "$package_name" != "com.martincalander.githubpackagemanager" ]]; then
             echo "Unexpected package name: $package_name" >&2
             exit 1
           fi
@@ -569,7 +569,7 @@ jobs:
             dist/SHA256SUMS
             --verify-tag
             --generate-notes
-            --title "Git Submodule Manager $RELEASE_TAG"
+            --title "Github Package Manager $RELEASE_TAG"
           )
           if [[ "$IS_PRERELEASE" == "true" ]]; then
             args+=(--prerelease)
@@ -594,7 +594,7 @@ jobs:
         id: openupm
         uses: openupm/openupm-action@89b79dc8dd6cb319efff06727f8fa0051ce7e517 # v1.0.1
         with:
-          package: com.martincalander.gitsubmodulemanager
+          package: com.martincalander.githubpackagemanager
           tag: ${{ needs.validate.outputs.tag }}
           timeout-minutes: 30
 

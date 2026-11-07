@@ -1,19 +1,19 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
 #if UNITY_6000_5_OR_NEWER
     // Cached package icons can be reused across Play mode transitions.
     [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
 #endif
-    internal static class GitSubmoduleManagerIcons
+    internal static class GithubPackageManagerIcons
     {
         internal const string DarkThemeIconFileName = "GitEditorWindowIcon.png";
         internal const string LightThemeIconFileName = "GitEditorWindowIconLight.png";
 
         private const string FallbackPackagePath =
-            "Packages/com.martincalander.gitsubmodulemanager";
+            "Packages/com.martincalander.githubpackagemanager";
 
         private static Texture2D darkThemeIcon;
         private static Texture2D lightThemeIcon;
@@ -46,7 +46,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
             {
                 UnityEditor.PackageManager.PackageInfo package =
                     UnityEditor.PackageManager.PackageInfo.FindForAssembly(
-                        typeof(GitSubmoduleManagerIcons).Assembly);
+                        typeof(GithubPackageManagerIcons).Assembly);
                 if (!string.IsNullOrWhiteSpace(package?.assetPath))
                     return package.assetPath.Replace('\\', '/').TrimEnd('/');
             }

@@ -3,17 +3,17 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
 #if UNITY_6000_5_OR_NEWER
     [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
 #endif
     internal static class PackageRepositoryLink
     {
-        internal const string ElementName = "git-submodule-repository-link";
+        internal const string ElementName = "github-package-manager-repository-link";
         private const string SeparatorName = ElementName + "-separator";
         private const string RowName = "upmLinksContainer";
-        private const string OwnedRowClass = "git-submodule-repository-row";
+        private const string OwnedRowClass = "github-package-manager-repository-row";
         private const BindingFlags Instance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private static readonly Lazy<NativeContract> Contract = new(ResolveContract);
 

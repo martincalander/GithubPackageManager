@@ -15,7 +15,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor.Tests
+namespace MartinCalander.GithubPackageManager.Editor.Tests
 {
     [Category("PackageSourceFeatures")]
     public sealed class PackageManagerSubmoduleActionsTests

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Git Submodule Manager are documented here.
+All notable changes to Github Package Manager are documented here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -10,7 +10,7 @@ and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 `main` now provides installed package status, sources, direct submodule
 installation, safe fast-forward updates, and safe removal. The former `main`
 with discovery and package-management workflows is preserved on
-[`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy).
+[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
 Local validation is recorded in the contribution guide. These changes have not
 been published as a new release; existing `0.8.1` artifacts remain unchanged.
 
@@ -50,6 +50,17 @@ been published as a new release; existing `0.8.1` artifacts remain unchanged.
   versions remain unvalidated.
 
 ### Changed
+
+- Rename the product to **Github Package Manager**, the package ID to
+  `com.martincalander.githubpackagemanager`, and the repository to
+  `martincalander/Githubpackagemanager`. Update assembly names, namespaces,
+  integration IDs, documentation, and release tooling. Preserve asset GUIDs
+  and the audited third-party DLL bytes while renaming their filenames.
+- Replace the README cover, repository social preview, and native sidebar
+  icons with the updated Figma artwork.
+- Recover saved Package Manager selections that used the earlier extension
+  IDs. See the [migration instructions](Documentation~/installation.md#migrating-from-earlier-package-names)
+  before updating an existing installation.
 
 - Reuse native toolbar lookups and restore the install action after menu
   reattachment. Release operation resources after partial setup failures.
@@ -328,7 +339,7 @@ The exact Git proof sequences and recovery boundaries are documented in the
 - Hosted CI and release workflows no longer launch the Unity Editor or run
   EditMode tests. Repository, archive, and cross-platform portability checks
   remain automated.
-- Repository links now use the `GitSubmoduleForUnity` GitHub repository name.
+- Repository links now use the `Githubpackagemanager` GitHub repository name.
 - Successful GitHub catalogues and healthy setup checks now survive script
   reloads for the time remaining in their existing short-lived cache windows.
   Cached catalogue entries appear only after the current GitHub account is
@@ -518,7 +529,7 @@ The exact Git proof sequences and recovery boundaries are documented in the
 ## Development Snapshot - 2026-07-12
 
 The package manifest reported version `1.0.0` at this
-[development snapshot](https://github.com/martincalander/GitSubmoduleForUnity/tree/5644e381f90f883aa9d12bbdca9efbf5c2b2eb05).
+[development snapshot](https://github.com/martincalander/Githubpackagemanager/tree/5644e381f90f883aa9d12bbdca9efbf5c2b2eb05).
 No tag or GitHub release was published.
 
 ### Added
@@ -564,7 +575,7 @@ No tag or GitHub release was published.
 - Basic project submodule listing, update, remove, and branch operations.
 - Early GitHub discovery and direct URL installation.
 
-[Unreleased]: https://github.com/martincalander/GitSubmoduleForUnity/compare/v0.8.1...HEAD
-[0.8.1]: https://github.com/martincalander/GitSubmoduleForUnity/releases/tag/v0.8.1
-[0.8.0]: https://github.com/martincalander/GitSubmoduleForUnity/releases/tag/v0.8.0
-[0.1.0]: https://github.com/martincalander/GitSubmoduleForUnity/tree/49bac435
+[Unreleased]: https://github.com/martincalander/Githubpackagemanager/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/martincalander/Githubpackagemanager/releases/tag/v0.8.1
+[0.8.0]: https://github.com/martincalander/Githubpackagemanager/releases/tag/v0.8.0
+[0.1.0]: https://github.com/martincalander/Githubpackagemanager/tree/49bac435

@@ -11,7 +11,7 @@ branch.
 | `main` | Yes |
 | 0.7.x and earlier | No |
 
-The [`legacy` branch](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy)
+The [`legacy` branch](https://github.com/martincalander/Githubpackagemanager/tree/legacy)
 archives the former manager with installation, conversion, removal, and remote
 discovery features. Its security model is documented in that branch. This
 archive does not change the supported-release policy above.

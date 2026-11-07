@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor.Tests
+namespace MartinCalander.GithubPackageManager.Editor.Tests
 {
     [TestFixture]
     [Category("PackageManagerCompatibility")]
@@ -121,7 +121,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
         public void NativeProjectList_HasNoCustomSubmoduleFilterOrMembershipHooks()
         {
             Assert.That(typeof(PackageManagerSubmoduleNativePage).Assembly.GetType(
-                "MartinCalander.GitSubmoduleManager.Editor.PackageManagerSubmoduleFilter"), Is.Null);
+                "MartinCalander.GithubPackageManager.Editor.PackageManagerSubmoduleFilter"), Is.Null);
             MethodInfo membership = PackageManagerSubmoduleHarmonyPatch.FindMethod(
                 "InProjectPage", "ShouldInclude", typeof(bool), "IPackage");
             MethodInfo activePageChanged = PackageManagerSubmoduleHarmonyPatch.FindMethod(
@@ -407,7 +407,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
         public IEnumerator NativeSidebarRecreation_RepairsGitHubSourceWithoutDuplicateOrSubmodulesRows()
         {
             Type windowType = typeof(UnityEditor.PackageManager.UI.IPackageManagerExtension).Assembly
-                .GetType(GitSubmoduleManagerPackageManagerHost.WindowTypeName);
+                .GetType(GithubPackageManagerPackageManagerHost.WindowTypeName);
             EditorWindow window = null;
             foreach (EditorWindow candidate in Resources.FindObjectsOfTypeAll<EditorWindow>())
                 if (candidate.GetType() == windowType)
@@ -465,7 +465,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
         {
             const BindingFlags instance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
             Type windowType = typeof(UnityEditor.PackageManager.UI.IPackageManagerExtension).Assembly
-                .GetType(GitSubmoduleManagerPackageManagerHost.WindowTypeName);
+                .GetType(GithubPackageManagerPackageManagerHost.WindowTypeName);
             EditorWindow window = null;
             foreach (EditorWindow candidate in Resources.FindObjectsOfTypeAll<EditorWindow>())
                 if (candidate.GetType() == windowType)
@@ -497,7 +497,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                 PropertyInfo activePage = manager.GetType().GetProperty("activePage", instance);
                 PropertyInfo searchText = inProject.GetType().GetProperty("searchText", instance);
                 activePage.SetValue(manager, inProject);
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
 
                 for (int selectionCount = 0; selectionCount <= 2; selectionCount += 2)
                 {
@@ -540,21 +540,21 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                     Assert.That(ReadSelection(inProject), Has.Length.EqualTo(selectionCount));
                     Assert.That(root.Q<Label>("git-submodule-package-status"), Is.Null,
                         "The legacy details label must be detached for this regression.");
-                    int sessions = GitSubmoduleManagerPackageManagerHost.SessionCount;
+                    int sessions = GithubPackageManagerPackageManagerHost.SessionCount;
                     parent = root.parent;
                     int position = parent.IndexOf(root);
                     root.RemoveFromHierarchy();
-                    Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions - 1));
+                    Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions - 1));
                     parent.Insert(position, root);
-                    Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions),
+                    Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions),
                         "Native sidebar attachment must observe a window even without a single selected package.");
                     VisualElement sidebar = FindElement(root, PackageManagerSubmoduleNativePage.SidebarTypeName);
                     PackageManagerSubmoduleNativePage.GetSidebarRefreshTarget().Invoke(sidebar, null);
-                    Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions),
+                    Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions),
                         "A second sidebar refresh must reuse the existing session.");
                     typeof(PackageManagerSubmoduleHarmonyPatch).GetMethod("SidebarRefreshPostfix",
                         BindingFlags.Static | BindingFlags.NonPublic).Invoke(null, new object[] { new VisualElement() });
-                    Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions),
+                    Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions),
                         "An unrelated sidebar must not create a session.");
                     Assert.That(root.Q("git-submodule-manager-submodules-only"), Is.Null,
                         "Ordinary project pages must not receive a custom filter.");
@@ -578,7 +578,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                 if (ownsWindow && window != null)
                     window.Close();
                 else if (root != null)
-                    GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
+                    GithubPackageManagerPackageManagerHost.ObserveRoot(root);
             }
         }
 
@@ -614,7 +614,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
             return null;
         }
 
-        [TestCase("Extension/git-submodule-manager", true)]
+        [TestCase("Extension/github-package-manager", true)]
         [TestCase("Extension/git-submodule-manager-submodules", false)]
         [TestCase("Extension/another-package", false)]
         [TestCase("InProject", false)]
@@ -644,8 +644,10 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
         }
 
         [TestCase("git-submodule-manager-submodules", true)]
+        [TestCase("git-submodule-manager", true)]
+        [TestCase("github-package-manager", false)]
         [TestCase("another-extension", false)]
-        public void RetiredPageRecovery_MigratesOnlyTheFormerSubmodulesPage(string extensionName, bool migrates)
+        public void RetiredPageRecovery_MigratesOnlyFormerPackagePages(string extensionName, bool migrates)
         {
             const BindingFlags instance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
             Type searchType = PackageManagerSubmoduleHarmonyPatch.FindType(

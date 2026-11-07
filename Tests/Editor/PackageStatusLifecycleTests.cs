@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.TestTools;
 
-namespace MartinCalander.GitSubmoduleManager.Editor.Tests
+namespace MartinCalander.GithubPackageManager.Editor.Tests
 {
     public sealed class PackageStatusLifecycleTests
     {
@@ -159,32 +159,32 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
         [UnityTest]
         public IEnumerator DetachedRootsDoNotRetainStatusObserversOrScheduledWork()
         {
-            int sessions = GitSubmoduleManagerPackageManagerHost.SessionCount;
-            int pending = GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount;
+            int sessions = GithubPackageManagerPackageManagerHost.SessionCount;
+            int pending = GithubPackageManagerPackageManagerHost.PendingAttachmentCount;
             var window = ScriptableObject.CreateInstance<StatusHostTestWindow>();
             var root = new VisualElement();
             try
             {
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
-                Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
+                Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
                 window.Show();
                 window.rootVisualElement.Add(root);
                 yield return null;
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
-                Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions + 1));
-                Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending + 1));
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
+                Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions + 1));
+                Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending + 1));
 
                 root.RemoveFromHierarchy();
-                Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
-                Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending));
+                Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
+                Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending));
 
                 window.rootVisualElement.Add(root);
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
-                Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions + 1));
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
+                Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions + 1));
                 window.Close();
-                Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
-                Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending));
+                Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
+                Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending));
             }
             finally
             {
@@ -197,8 +197,8 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
         [UnityTest]
         public IEnumerator FailedAttachmentStopsRetryingAndCanResumeOnALaterObservation()
         {
-            int sessions = GitSubmoduleManagerPackageManagerHost.SessionCount;
-            int pending = GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount;
+            int sessions = GithubPackageManagerPackageManagerHost.SessionCount;
+            int pending = GithubPackageManagerPackageManagerHost.PendingAttachmentCount;
             var window = ScriptableObject.CreateInstance<StatusHostTestWindow>();
             var root = new VisualElement();
             try
@@ -206,17 +206,17 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                 window.Show();
                 window.rootVisualElement.Add(root);
                 yield return null;
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
                 double deadline = EditorApplication.timeSinceStartup + 10;
-                while (GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount > pending &&
+                while (GithubPackageManagerPackageManagerHost.PendingAttachmentCount > pending &&
                        EditorApplication.timeSinceStartup < deadline)
                     yield return null;
-                Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending),
+                Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending),
                     "Unavailable native UI must not cause permanent retries.");
-                Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions + 1));
+                Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions + 1));
 
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(root);
-                Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending + 1),
+                GithubPackageManagerPackageManagerHost.ObserveRoot(root);
+                Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending + 1),
                     "A later attachment observation must recover after a construction timeout.");
             }
             finally
@@ -225,8 +225,8 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                 if (window != null)
                     window.Close();
             }
-            Assert.That(GitSubmoduleManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
-            Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending));
+            Assert.That(GithubPackageManagerPackageManagerHost.SessionCount, Is.EqualTo(sessions));
+            Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.EqualTo(pending));
         }
 
         [UnityTest]
@@ -244,7 +244,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
             bool enabled = EditorSettings.enterPlayModeOptionsEnabled;
             EnterPlayModeOptions options = EditorSettings.enterPlayModeOptions;
             Type windowType = typeof(UnityEditor.PackageManager.UI.IPackageManagerExtension).Assembly
-                .GetType(GitSubmoduleManagerPackageManagerHost.WindowTypeName);
+                .GetType(GithubPackageManagerPackageManagerHost.WindowTypeName);
             EditorWindow window = null;
             foreach (EditorWindow candidate in Resources.FindObjectsOfTypeAll<EditorWindow>())
                 if (candidate.GetType() == windowType)
@@ -267,7 +267,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                 yield return null;
                 var initialRoot = PackageManagerSubmoduleHarmonyPatch.Read(window, "m_Root") as VisualElement;
                 Assert.That(initialRoot, Is.Not.Null);
-                GitSubmoduleManagerPackageManagerHost.ObserveRoot(initialRoot);
+                GithubPackageManagerPackageManagerHost.ObserveRoot(initialRoot);
                 const BindingFlags fields = BindingFlags.Static | BindingFlags.NonPublic;
                 FieldInfo stateField = typeof(PackageManagerPackageStatus).GetField("State", fields);
                 FieldInfo harmonyField = typeof(PackageManagerSubmoduleHarmonyPatch).GetField("harmony", fields);
@@ -294,10 +294,10 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                     Assert.That(sidebar, Is.Not.Null);
                     PackageManagerSubmoduleNativePage.GetSidebarRefreshTarget().Invoke(sidebar, null);
                     double repairDeadline = EditorApplication.timeSinceStartup + 10;
-                    while (GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount > 0 &&
+                    while (GithubPackageManagerPackageManagerHost.PendingAttachmentCount > 0 &&
                            EditorApplication.timeSinceStartup < repairDeadline)
                         yield return null;
-                    Assert.That(GitSubmoduleManagerPackageManagerHost.PendingAttachmentCount, Is.Zero);
+                    Assert.That(GithubPackageManagerPackageManagerHost.PendingAttachmentCount, Is.Zero);
                     var rows = new List<VisualElement>();
                     CollectGitHubRows(sidebar, rows);
                     Assert.That(rows, Has.Count.EqualTo(1), "Native sidebar repair must survive disabled-domain-reload Play Mode.");
@@ -307,7 +307,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
                     Assert.That(rows[0].parent, Is.SameAs(sources));
                     Assert.That(root.Q("git-submodule-manager-submodules-only"), Is.Null,
                         "Play Mode must not recreate the removed custom filter.");
-                    Assert.That(root.Q("git-submodule-manager-submodules-sidebar-row"), Is.Null,
+                    Assert.That(root.Q("github-package-manager-submodules-sidebar-row"), Is.Null,
                         "Play Mode must not recreate the former Submodules sidebar row.");
                     Assert.That(root.Q("git-submodule-package-details"), Is.Null,
                         "Play Mode must not recreate the removed custom details panel.");
@@ -345,7 +345,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor.Tests
             Assert.That(extensions, Is.Not.Null);
             foreach (object extension in extensions)
                 Assert.That(extension?.GetType().Assembly,
-                    Is.Not.SameAs(typeof(GitSubmoduleManagerPackageManagerHost).Assembly),
+                    Is.Not.SameAs(typeof(GithubPackageManagerPackageManagerHost).Assembly),
                     "Native integration must not register a package-owned legacy details extension.");
         }
 

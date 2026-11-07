@@ -1,6 +1,6 @@
 # User Guide
 
-Open **Window > Package Management > Package Manager**. Git Submodule Manager
+Open **Window > Package Management > Package Manager**. Github Package Manager
 adds submodule labels, a native **Repository** link, and **Sources > GitHub**.
 This is the current design on `main`. See
 [compatibility](installation.md#unity) for the exact Editor targets and local
@@ -159,7 +159,7 @@ identity still requires current matching metadata.
 
 ## Play Mode Without Domain Reload
 
-Git Submodule Manager supports entering Play mode with domain reload disabled,
+Github Package Manager supports entering Play mode with domain reload disabled,
 including when scene reload is disabled. Package Manager status, native hooks,
 and removal protection belong to the Editor and remain active across Play mode
 cycles. The extension does not reinstall its hooks or restart status observation
@@ -174,7 +174,7 @@ and does not change the project's Enter Play Mode settings.
 
 The former remote catalogue, install and conversion actions, dependency planning,
 Welcome window, and Preferences page are preserved on
-[`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy).
+[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
 Published `0.8.1` artifacts also contain that earlier workflow. On `main`, the
 manager reads installed state and provides direct link installation, update,
 and safe removal. It does not restore the legacy catalogue or conversion workflows.

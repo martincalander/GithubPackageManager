@@ -1,7 +1,7 @@
 # Maintainers
 
 Maintainers are trusted contributors responsible for the health, safety, and
-direction of Git Submodule Manager.
+direction of Github Package Manager.
 
 ## Current Maintainers
 

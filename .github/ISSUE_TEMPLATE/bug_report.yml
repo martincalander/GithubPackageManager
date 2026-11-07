@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible defect in Git Submodule Manager
+description: Report a reproducible defect in Github Package Manager
 title: "[Bug]: "
 labels: [bug, needs-triage]
 body:

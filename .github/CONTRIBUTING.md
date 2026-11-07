@@ -1,4 +1,4 @@
-# Contributing to Git Submodule Manager
+# Contributing to Github Package Manager
 
 Contributions are welcome under the [MIT License](../LICENSE.md) and must follow
 the [Code of Conduct](CODE_OF_CONDUCT.md).
@@ -9,7 +9,7 @@ reliable, or less expensive to run. Direct link installation and safe submodule
 package removal also live in the native Package Manager. Conversion, dependency
 planning, and remote catalogue discovery remain outside the current product
 scope. The former implementation is preserved on
-[`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy);
+[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy);
 published `0.8.1` artifacts still contain that implementation.
 
 ## Development Prerequisites
@@ -28,7 +28,7 @@ across every admitted alpha or other target. GitHub CLI is not required.
 
 ## Set Up a Test Project
 
-Use a working clone below `Packages/com.martincalander.gitsubmodulemanager`, or
+Use a working clone below `Packages/com.martincalander.githubpackagemanager`, or
 load its `package.json` with **+ > Install package from disk...**. Open
 **Window > Package Management > Package Manager** and inspect package status and
 **Sources > GitHub**.
@@ -74,7 +74,7 @@ tests. A successful `dotnet build` is not a Unity compilation.
 
 Reflection or Harmony changes require the `PackageManagerCompatibility`
 category. Broad lifecycle changes require the full
-`MartinCalander.GitSubmoduleManager.Editor.Tests` assembly after focused tests
+`MartinCalander.GithubPackageManager.Editor.Tests` assembly after focused tests
 pass. Run that full assembly once at final verification and repeat it only when
 a relevant change invalidates the result.
 
@@ -131,9 +131,39 @@ Do not open a public issue for a vulnerability. Follow [SECURITY.md](SECURITY.md
 
 ## Attribution
 
-Git Submodule Manager was created by Martin Calander. Contributors retain
+Github Package Manager was created by Martin Calander. Contributors retain
 authorship of their contributions; the combined project is distributed under
 the [MIT License](../LICENSE.md).
+
+## Package Rename Verification on 2026-11-08
+
+The rename to Github Package Manager was checked on macOS ARM64 with Unity
+`7000.0.0a16` (`0745a91df592`), Unity CLI `1.0.0-beta.16`, and Pipeline
+`0.10.0-exp.1`.
+
+- Fresh Unity import and compilation succeeded. Unity registered
+  `com.martincalander.githubpackagemanager` at its renamed embedded path.
+- All 123 `PackageManagerCompatibility` tests passed, including recovery of
+  saved selections using the earlier page IDs, with no failures or skips.
+- After importing the Figma logo, all 21 `PackageStatusPresentationTests`
+  passed with no failures or skips.
+- All 12 bundled DLLs and all 50 existing metadata files retained their exact
+  bytes through the filename changes.
+- Repository validation, eight Python checks, Markdown lint, Actionlint,
+  package dry run, and whitespace checks passed.
+- The 600 by 300 cover, 1280 by 640 social preview, and sidebar logo came
+  directly from the Figma design. GitHub's social preview was updated.
+
+The initial native-source run used `-nographics`: 107 tests passed and two UI
+checks failed because Unity had no graphics device. The subsequent graphics
+session passed the complete compatibility category without source changes.
+Historical results below retain the names used when those checks ran.
+
+Not run: the full Editor assembly, other Unity versions, Windows, Linux, player
+builds, or signed release artifacts. Consumer projects receive the renamed
+package ID and repository URL, with package resolution and compilation checks
+only. This rename does not publish a new versioned release or modify the
+preserved legacy branch and existing release artifacts.
 
 ## Experiment Verification on 2026-10-18
 

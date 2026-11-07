@@ -10,11 +10,11 @@ package links when a safe repository URL is available. Its scope is status
 and sources, with a small Editor footprint. The native plus menu accepts a
 repository link, Unity's native Git update action updates a verified submodule
 package, and the native removal action removes one. It does not discover remote repositories or plan dependencies. The former management implementation is preserved
-on [`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy).
+on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
 
 ```text
 Editor/
-├── GitSubmoduleManagerPackageManagerHost.cs
+├── GithubPackageManagerPackageManagerHost.cs
 │                               Package Manager lifecycle
 ├── PackageManagerPackageStatus.cs
 │                               installed source and submodule classification
@@ -298,7 +298,7 @@ operations against temporary Git repositories. The
 ownership needed by the native integration.
 
 Changes to reflection require compatibility tests; lifecycle changes require the
-full `MartinCalander.GitSubmoduleManager.Editor.Tests` assembly after focused
+full `MartinCalander.GithubPackageManager.Editor.Tests` assembly after focused
 checks pass. Report each untested Unity version and platform. Repository checks
 also verify metadata, local documentation links, Unity `.meta` files, dependency
 artifacts, and package contents.

@@ -1,6 +1,6 @@
 # Attribution Notice
 
-Git Submodule Manager was created by **Martin Calander**.
+Github Package Manager was created by **Martin Calander**.
 
 Copyright (c) 2026 Martin Calander.
 

@@ -8,7 +8,7 @@
       "path": "lib/netstandard2.0/0Harmony.dll",
       "file": "0Harmony.dll",
       "sha256": "70e7647876b6c3d874ea99b56627a95d1dce2e1dd791981a002578a2febc9bbd",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll"
     },
     {
       "package": "monomod.runtimedetour",
@@ -18,7 +18,7 @@
       "path": "lib/netstandard2.1/MonoMod.RuntimeDetour.dll",
       "file": "MonoMod.RuntimeDetour.dll",
       "sha256": "c186cc37e3cc3368540d0c2857b20c4f59cd1ddfe5c58c460f69a76a3e68c42d",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.RuntimeDetour.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.RuntimeDetour.dll"
     },
     {
       "package": "monomod.core",
@@ -28,7 +28,7 @@
       "path": "lib/netstandard2.1/MonoMod.Core.dll",
       "file": "MonoMod.Core.dll",
       "sha256": "6b06ad52612efd0534660f9ff4b68dcee685f5d604ff6ebe281f9041329c4376",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Core.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Core.dll"
     },
     {
       "package": "monomod.core",
@@ -38,7 +38,7 @@
       "path": "lib/netstandard2.1/MonoMod.Iced.dll",
       "file": "MonoMod.Iced.dll",
       "sha256": "42d9fc0cc12b37a61c832fca5768f62bd4d429890d34ba5c1acc30e150a99ffe",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Iced.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Iced.dll"
     },
     {
       "package": "monomod.utils",
@@ -48,7 +48,7 @@
       "path": "lib/netstandard2.1/MonoMod.Utils.dll",
       "file": "MonoMod.Utils.dll",
       "sha256": "19f8df7d0d8ab311ad7f3a134beb82a87d4f1d26f9708b0bdd653f787dbf21a0",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Utils.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Utils.dll"
     },
     {
       "package": "monomod.backports",
@@ -58,7 +58,7 @@
       "path": "lib/netstandard2.1/MonoMod.Backports.dll",
       "file": "MonoMod.Backports.dll",
       "sha256": "b3fc7aac52ffe6579ae1009a285a3d892b167151b0e18b5c1066ccb88e8b44a4",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Backports.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Backports.dll"
     },
     {
       "package": "monomod.ilhelpers",
@@ -68,7 +68,7 @@
       "path": "lib/netstandard2.1/MonoMod.ILHelpers.dll",
       "file": "MonoMod.ILHelpers.dll",
       "sha256": "a13590452f2bdf72718f43b410f43e110f273fce57fabd58ac5043a59b9be049",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.ILHelpers.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.MonoMod.ILHelpers.dll"
     },
     {
       "package": "mono.cecil",
@@ -78,7 +78,7 @@
       "path": "lib/netstandard2.0/Mono.Cecil.dll",
       "file": "Mono.Cecil.dll",
       "sha256": "831dca77470d85cb6ffbea3072daa7a3df5b7c9fcfd9c3f43674a9be99d4bfcf",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.dll"
     },
     {
       "package": "mono.cecil",
@@ -88,7 +88,7 @@
       "path": "lib/netstandard2.0/Mono.Cecil.Mdb.dll",
       "file": "Mono.Cecil.Mdb.dll",
       "sha256": "28cb367972bdc1cd43e4006306af2fd96d37f4ed4b239ee90e1dc7237a93af7f",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Mdb.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Mdb.dll"
     },
     {
       "package": "mono.cecil",
@@ -98,7 +98,7 @@
       "path": "lib/netstandard2.0/Mono.Cecil.Pdb.dll",
       "file": "Mono.Cecil.Pdb.dll",
       "sha256": "a332332633fbcb20e8d50e49b4db7bd1557721417122cf0c5f4c42f2332391d0",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Pdb.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Pdb.dll"
     },
     {
       "package": "mono.cecil",
@@ -108,7 +108,7 @@
       "path": "lib/netstandard2.0/Mono.Cecil.Rocks.dll",
       "file": "Mono.Cecil.Rocks.dll",
       "sha256": "bf992f3dce364ebcc3200fa7832ef07e20b4e2dbc3a8a6213ce44e3d239db984",
-      "plugin": "ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Rocks.dll"
+      "plugin": "ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Rocks.dll"
     }
   ]
 }

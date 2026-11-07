@@ -1,11 +1,11 @@
 # Roadmap
 
-Git Submodule Manager has a focused role: show how packages are installed and
+Github Package Manager has a focused role: show how packages are installed and
 make installed submodules and GitHub packages easy to find in Unity's native
 Package Manager.
 The `main` branch develops this status and sources view. The former management
 workflows are preserved on
-[`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy).
+[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
 
 ## Current Priorities
 

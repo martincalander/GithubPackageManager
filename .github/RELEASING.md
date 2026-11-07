@@ -1,4 +1,4 @@
-# Releasing Git Submodule Manager
+# Releasing Github Package Manager
 
 This guide is for maintainers publishing a GitHub release for the UPM package.
 Releases follow [Semantic Versioning](https://semver.org/) and are produced by
@@ -9,7 +9,7 @@ preserves the former management workflow. Promoting the branch does not publish
 a release. Existing `v0.8.1` tags, OpenUPM packages, and installer artifacts stay
 unchanged. Choose a new version for the first simplified release and verify
 its exact package payload before tagging. The bootstrap installer and its build
-tools are preserved on [`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy/Installer~).
+tools are preserved on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
 Current releases publish the UPM archive and its checksum manifest.
 
 ## Release Authority
@@ -70,7 +70,7 @@ The version in [`package.json`](../package.json) and the tag without its leading
    ```
 
 6. In a clean Unity project, install the package from the exact release commit,
-   run `MartinCalander.GitSubmoduleManager.Editor.Tests` in EditMode, then verify
+   run `MartinCalander.GithubPackageManager.Editor.Tests` in EditMode, then verify
    submodule classification, the installed GitHub source, ordinary package
    actions, and protection against raw embedded deletion of submodules.
 7. Record any platform or Unity version that could not be tested in the release
@@ -92,10 +92,10 @@ For the first publication:
 1. publish the first signed GitHub Release normally;
 2. submit the package through [OpenUPM Add Package](https://openupm.com/packages/add/);
 3. verify its `repoUrl` is the canonical public repository
-   `https://github.com/martincalander/GitSubmoduleForUnity`;
+   `https://github.com/martincalander/Githubpackagemanager`;
 4. ensure the generated metadata uses `trackingMode: githubRelease` and the
    stable asset prefix
-   `githubReleaseAssetName: 'com.martincalander.gitsubmodulemanager-'`;
+   `githubReleaseAssetName: 'com.martincalander.githubpackagemanager-'`;
 5. wait for the metadata pull request to merge and the initial signed version
    to become available;
 6. create the repository Actions variable `OPENUPM_ENABLED=true` for future
@@ -120,7 +120,7 @@ if git rev-parse --verify "refs/tags/$release_tag" >/dev/null 2>&1; then
   echo "Choose a new, unreleased package version before tagging." >&2
   exit 1
 fi
-git tag -a "$release_tag" -m "Git Submodule Manager $release_version"
+git tag -a "$release_tag" -m "Github Package Manager $release_version"
 git push origin "$release_tag"
 ```
 
@@ -155,7 +155,7 @@ immutable release.
 - Install the tag from a clean Unity project:
 
   ```text
-  https://github.com/martincalander/GitSubmoduleForUnity.git#v<new-package-version>
+  https://github.com/martincalander/Githubpackagemanager.git#v<new-package-version>
   ```
 
 - Confirm the package imports, **Package Manager > Sources > GitHub** opens, and

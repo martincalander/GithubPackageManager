@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-Git Submodule Manager bundles the third-party libraries and artwork described
+Github Package Manager bundles the third-party libraries and artwork described
 below. Git remains an external tool supplied separately by the user.
 
 ## Bundled Software
@@ -13,7 +13,7 @@ below. Git remains an external tool supplied separately by the user.
 - Role: Editor-only patches for specific Unity Package Manager methods
 
 Unity's plugin define constraints select the patching implementation. The
-original `ThirdParty/GitSubmoduleManager.Harmony.dll` is Harmony 2.4.1 for .NET
+original `ThirdParty/GithubPackageManager.Harmony.dll` is Harmony 2.4.1 for .NET
 Framework 4.7.2 and requires `!ENABLE_CORECLR`. Its audited bytes, GUID, and
 explicit assembly reference are preserved. It matches `lib/net472/0Harmony.dll`
 in the official [Lib.Harmony 2.4.1 package](https://www.nuget.org/packages/Lib.Harmony/2.4.1):
@@ -59,24 +59,24 @@ change the assembly identity.
 #### CoreCLR Artifact Provenance
 
 The DLLs are extracted from the exact official NuGet packages above. The
-[artifact manifest](https://github.com/martincalander/GitSubmoduleForUnity/blob/main/.github/scripts/coreclr_harmony_artifacts.json)
+[artifact manifest](https://github.com/martincalander/Githubpackagemanager/blob/main/.github/scripts/coreclr_harmony_artifacts.json)
 records download URLs, archive SHA-256 values, source paths, and DLL SHA-256
 values. Repository validation checks the packaged DLL hashes and importer
 constraints.
 
 | Packaged file | SHA-256 |
 | --- | --- |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.Harmony.dll` | `70e7647876b6c3d874ea99b56627a95d1dce2e1dd791981a002578a2febc9bbd` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.RuntimeDetour.dll` | `c186cc37e3cc3368540d0c2857b20c4f59cd1ddfe5c58c460f69a76a3e68c42d` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Core.dll` | `6b06ad52612efd0534660f9ff4b68dcee685f5d604ff6ebe281f9041329c4376` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Iced.dll` | `42d9fc0cc12b37a61c832fca5768f62bd4d429890d34ba5c1acc30e150a99ffe` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Utils.dll` | `19f8df7d0d8ab311ad7f3a134beb82a87d4f1d26f9708b0bdd653f787dbf21a0` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.Backports.dll` | `b3fc7aac52ffe6579ae1009a285a3d892b167151b0e18b5c1066ccb88e8b44a4` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.MonoMod.ILHelpers.dll` | `a13590452f2bdf72718f43b410f43e110f273fce57fabd58ac5043a59b9be049` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.dll` | `831dca77470d85cb6ffbea3072daa7a3df5b7c9fcfd9c3f43674a9be99d4bfcf` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Mdb.dll` | `28cb367972bdc1cd43e4006306af2fd96d37f4ed4b239ee90e1dc7237a93af7f` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Pdb.dll` | `a332332633fbcb20e8d50e49b4db7bd1557721417122cf0c5f4c42f2332391d0` |
-| `ThirdParty/CoreCLR/GitSubmoduleManager.Mono.Cecil.Rocks.dll` | `bf992f3dce364ebcc3200fa7832ef07e20b4e2dbc3a8a6213ce44e3d239db984` |
+| `ThirdParty/CoreCLR/GithubPackageManager.Harmony.dll` | `70e7647876b6c3d874ea99b56627a95d1dce2e1dd791981a002578a2febc9bbd` |
+| `ThirdParty/CoreCLR/GithubPackageManager.MonoMod.RuntimeDetour.dll` | `c186cc37e3cc3368540d0c2857b20c4f59cd1ddfe5c58c460f69a76a3e68c42d` |
+| `ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Core.dll` | `6b06ad52612efd0534660f9ff4b68dcee685f5d604ff6ebe281f9041329c4376` |
+| `ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Iced.dll` | `42d9fc0cc12b37a61c832fca5768f62bd4d429890d34ba5c1acc30e150a99ffe` |
+| `ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Utils.dll` | `19f8df7d0d8ab311ad7f3a134beb82a87d4f1d26f9708b0bdd653f787dbf21a0` |
+| `ThirdParty/CoreCLR/GithubPackageManager.MonoMod.Backports.dll` | `b3fc7aac52ffe6579ae1009a285a3d892b167151b0e18b5c1066ccb88e8b44a4` |
+| `ThirdParty/CoreCLR/GithubPackageManager.MonoMod.ILHelpers.dll` | `a13590452f2bdf72718f43b410f43e110f273fce57fabd58ac5043a59b9be049` |
+| `ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.dll` | `831dca77470d85cb6ffbea3072daa7a3df5b7c9fcfd9c3f43674a9be99d4bfcf` |
+| `ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Mdb.dll` | `28cb367972bdc1cd43e4006306af2fd96d37f4ed4b239ee90e1dc7237a93af7f` |
+| `ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Pdb.dll` | `a332332633fbcb20e8d50e49b4db7bd1557721417122cf0c5f4c42f2332391d0` |
+| `ThirdParty/CoreCLR/GithubPackageManager.Mono.Cecil.Rocks.dll` | `bf992f3dce364ebcc3200fa7832ef07e20b4e2dbc3a8a6213ce44e3d239db984` |
 
 #### MIT License
 
@@ -115,14 +115,16 @@ SOFTWARE.
 
 ### Git Logomark
 
-- Files: `Documentation~/Images/GitSubmoduleManagerCover.png`,
+- Files: `Documentation~/Images/GithubPackageManagerCover.png`,
+  `Documentation~/Images/GithubPackageManagerSocialPreview.png`,
   `Editor/GitEditorWindowIcon.png`, and `Editor/GitEditorWindowIconLight.png`
 - Original Git logomark creator: Jason Long
 - Source: [Git logo downloads](https://git-scm.com/community/logos)
 - License: [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/)
 - Use: the cover adapts the official mark into artwork for repository
-  documentation. One-color variants are recolored for Unity's dark and light
-  skins and appear in the Package Manager GitHub Sources row.
+  documentation. The box-and-Git artwork is exported from Martin Calander's
+  Figma design and also appears in the Package Manager GitHub Sources row
+  in both Editor skins.
 
 ## External Tools
 

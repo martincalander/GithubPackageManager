@@ -7,14 +7,14 @@ using HarmonyLib;
 using UnityEditor;
 using UnityEngine.UIElements;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
 #if UNITY_6000_5_OR_NEWER
     [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
 #endif
     internal static class PackageManagerSubmoduleHarmonyPatch
     {
-        internal const string HarmonyId = "com.martincalander.gitsubmodulemanager.package-status";
+        internal const string HarmonyId = "com.martincalander.githubpackagemanager.package-status";
         private const string Prefix = "UnityEditor.PackageManager.UI.Internal.";
         private const string SubmoduleTagText = "Submodule";
         private const string SubmoduleTagTooltip = "Installed as a Git submodule under Packages/.";
@@ -338,7 +338,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
             if (!(__instance is VisualElement sidebar))
                 return;
             // Details UI stays detached without a single selection, so sidebar creation also observes the window.
-            GitSubmoduleManagerPackageManagerHost.ObserveAncestors(sidebar);
+            GithubPackageManagerPackageManagerHost.ObserveAncestors(sidebar);
             PackageManagerSubmoduleNativePage.NotifySidebarRefreshed(sidebar);
         }
 
@@ -352,7 +352,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
         {
             if (__instance is VisualElement links)
             {
-                GitSubmoduleManagerPackageManagerHost.ObserveAncestors(links);
+                GithubPackageManagerPackageManagerHost.ObserveAncestors(links);
                 PackageRepositoryLink.Refresh(links, __0);
             }
         }

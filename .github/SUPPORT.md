@@ -13,7 +13,7 @@ The current `main` branch shows installed-package status and a
 **Sources > GitHub** page using local project metadata. GitHub CLI and
 authentication are not required. The former installation, conversion, and
 remote discovery workflows are preserved on
-[`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy).
+[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
 Published `0.8.1` artifacts still contain that earlier implementation.
 
 ## Where to Ask

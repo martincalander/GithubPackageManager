@@ -1,6 +1,6 @@
-# Git Submodule Manager
+# Github Package Manager
 
-Git Submodule Manager is a lightweight view of installed packages in Unity's
+Github Package Manager is a lightweight view of installed packages in Unity's
 native Package Manager. Submodules are labelled **Submodule**, and
 **Sources > GitHub** lists installed GitHub submodules and UPM Git dependencies.
 A **Repository** link appears first in the selected package's native links row
@@ -30,7 +30,7 @@ See the [verification records](../.github/CONTRIBUTING.md) for the exact commits
 Unity versions, platforms, and checks exercised locally.
 
 The former installation, conversion, and remote discovery workflows are preserved
-on [`legacy`](https://github.com/martincalander/GitSubmoduleForUnity/tree/legacy).
+on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
 Published `0.8.1` artifacts still contain that earlier implementation. Follow
 the installation guide to use the current implementation from `main`.
 
@@ -42,8 +42,8 @@ the installation guide to use the current implementation from `main`.
 - [Architecture and safety model](architecture.md)
 - [Roadmap](roadmap.md)
 - [Changelog](../CHANGELOG.md)
-- [Support](https://github.com/martincalander/GitSubmoduleForUnity/blob/main/.github/SUPPORT.md)
-- [Security policy](https://github.com/martincalander/GitSubmoduleForUnity/blob/main/.github/SECURITY.md)
+- [Support](https://github.com/martincalander/Githubpackagemanager/blob/main/.github/SUPPORT.md)
+- [Security policy](https://github.com/martincalander/Githubpackagemanager/blob/main/.github/SECURITY.md)
 
 ## License
 

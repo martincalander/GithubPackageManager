@@ -11,9 +11,9 @@ using UnityEditor;
 using UnityEditor.PackageManager;
 using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 using UnityEngine;
-using static MartinCalander.GitSubmoduleManager.Editor.PackageManagerSubmoduleHarmonyPatch;
+using static MartinCalander.GithubPackageManager.Editor.PackageManagerSubmoduleHarmonyPatch;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
     internal readonly struct PackageSubmoduleStatus
     {

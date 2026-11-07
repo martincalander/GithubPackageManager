@@ -1,8 +1,8 @@
 {
-    "name": "MartinCalander.GitSubmoduleManager.Editor.Tests",
-    "rootNamespace": "MartinCalander.GitSubmoduleManager.Editor.Tests",
+    "name": "MartinCalander.GithubPackageManager.Editor.Tests",
+    "rootNamespace": "MartinCalander.GithubPackageManager.Editor.Tests",
     "references": [
-        "MartinCalander.GitSubmoduleManager.Editor"
+        "MartinCalander.GithubPackageManager.Editor"
     ],
     "includePlatforms": [
         "Editor"
@@ -13,13 +13,13 @@
     "precompiledReferences": [],
     "autoReferenced": false,
     "defineConstraints": [
-        "GIT_SUBMODULE_MANAGER_TEST_FRAMEWORK"
+        "GITHUB_PACKAGE_MANAGER_TEST_FRAMEWORK"
     ],
     "versionDefines": [
         {
             "name": "com.unity.test-framework",
             "expression": "",
-            "define": "GIT_SUBMODULE_MANAGER_TEST_FRAMEWORK"
+            "define": "GITHUB_PACKAGE_MANAGER_TEST_FRAMEWORK"
         }
     ],
     "noEngineReferences": false,

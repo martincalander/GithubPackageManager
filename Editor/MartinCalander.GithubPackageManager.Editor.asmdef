@@ -1,6 +1,6 @@
 {
-    "name": "MartinCalander.GitSubmoduleManager.Editor",
-    "rootNamespace": "MartinCalander.GitSubmoduleManager.Editor",
+    "name": "MartinCalander.GithubPackageManager.Editor",
+    "rootNamespace": "MartinCalander.GithubPackageManager.Editor",
     "references": [],
     "includePlatforms": [
         "Editor"
@@ -9,7 +9,7 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "GitSubmoduleManager.Harmony.dll"
+        "GithubPackageManager.Harmony.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [],

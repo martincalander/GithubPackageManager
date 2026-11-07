@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static MartinCalander.GitSubmoduleManager.Editor.PackageManagerSubmoduleHarmonyPatch;
+using static MartinCalander.GithubPackageManager.Editor.PackageManagerSubmoduleHarmonyPatch;
 
-namespace MartinCalander.GitSubmoduleManager.Editor
+namespace MartinCalander.GithubPackageManager.Editor
 {
     /// <summary>
     /// Version eligibility for the Package Manager reflection contracts. UPM
@@ -118,7 +118,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
 #endif
     internal sealed class PackageManagerSubmoduleNativePage : IDisposable
     {
-        internal const string ExtensionPageName = "git-submodule-manager";
+        internal const string ExtensionPageName = "github-package-manager";
         internal const string ExtensionPageId = "Extension/" + ExtensionPageName;
         internal const string ExtensionPageDisplayName = "GitHub";
         internal const string ExtensionPageArgsTypeName =
@@ -132,7 +132,7 @@ namespace MartinCalander.GitSubmoduleManager.Editor
         internal const string PageInterfaceTypeName =
             "UnityEditor.PackageManager.UI.Internal.IPage";
         internal const string NativeSidebarRowElementName =
-            "git-submodule-manager-native-sidebar-row";
+            "github-package-manager-native-sidebar-row";
 
         private const BindingFlags Instance =
             BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
@@ -243,8 +243,8 @@ namespace MartinCalander.GitSubmoduleManager.Editor
                 attachedRow.name = NativeSidebarRowElementName;
                 attachedRow.tooltip = "Installed packages hosted on GitHub.";
                 VisualElement icon = attachedRow.Q("sidebarIcon") ?? attachedRow.Q(className: "sidebarIcon");
-                if (icon != null && GitSubmoduleManagerIcons.GitIcon != null)
-                    icon.style.backgroundImage = new StyleBackground(GitSubmoduleManagerIcons.GitIcon);
+                if (icon != null && GithubPackageManagerIcons.GitIcon != null)
+                    icon.style.backgroundImage = new StyleBackground(GithubPackageManagerIcons.GitIcon);
                 rebuild = GetVoidMethod(page.GetType(), "Rebuild", typeof(bool));
                 rebuildHasForceArgument = rebuild != null;
                 rebuild ??= GetVoidMethod(page.GetType(), "RebuildVisualStatesAndUpdateVisibilityWithSearchText");
@@ -263,8 +263,10 @@ namespace MartinCalander.GitSubmoduleManager.Editor
         {
             try
             {
-                if (!string.Equals(ReadMember(ReadMember(manager, "activePage"), "id") as string,
-                    "Extension/git-submodule-manager-submodules", StringComparison.Ordinal))
+                string activeId = ReadMember(ReadMember(manager, "activePage"), "id") as string;
+                // Recover saved selections from installations before the package rename.
+                if (!string.Equals(activeId, "Extension/git-submodule-manager-submodules", StringComparison.Ordinal) &&
+                    !string.Equals(activeId, "Extension/git-submodule-manager", StringComparison.Ordinal))
                     return;
                 Type managerType = FindType(PageManagerTypeName);
                 Type pageType = FindType(PageInterfaceTypeName);
