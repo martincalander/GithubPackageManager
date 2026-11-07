@@ -7,12 +7,14 @@ and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-`main` now provides installed package status, sources, direct submodule
+## [0.9.0] - 2026-11-08
+
+Github Package Manager now provides installed package status, sources, direct submodule
 installation, safe fast-forward updates, and safe removal. The former `main`
 with discovery and package-management workflows is preserved on
 [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
-Local validation is recorded in the contribution guide. These changes have not
-been published as a new release; existing `0.8.1` artifacts remain unchanged.
+Local validation is recorded in the contribution guide. Existing `0.8.1`
+artifacts retain the previous package name and implementation.
 
 ### Added
 
@@ -34,8 +36,8 @@ been published as a new release; existing `0.8.1` artifacts remain unchanged.
   suffix, retaining the existing Unity 6 targets and independent runtime checks
   for each native feature. New alpha numbers no longer need an explicit package
   update. Exact tested revisions and platforms remain recorded separately in
-  the contribution guide. Unity 7 requires a current Git dependency or local
-  checkout; published `0.8.1` artifacts retain their earlier version gate.
+  the contribution guide. Unity 7 requires `0.9.0` or a current Git dependency
+  or local checkout; published `0.8.1` artifacts retain their earlier version gate.
 
 - Add **Repository** as the first link in Unity's native Documentation,
   Changelog, and Licenses row when the installed package has a safe repository
@@ -575,7 +577,8 @@ No tag or GitHub release was published.
 - Basic project submodule listing, update, remove, and branch operations.
 - Early GitHub discovery and direct URL installation.
 
-[Unreleased]: https://github.com/martincalander/Githubpackagemanager/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/martincalander/Githubpackagemanager/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/martincalander/Githubpackagemanager/compare/v0.8.1...v0.9.0
 [0.8.1]: https://github.com/martincalander/Githubpackagemanager/releases/tag/v0.8.1
 [0.8.0]: https://github.com/martincalander/Githubpackagemanager/releases/tag/v0.8.0
 [0.1.0]: https://github.com/martincalander/Githubpackagemanager/tree/49bac435

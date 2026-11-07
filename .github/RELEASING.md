@@ -4,11 +4,10 @@ This guide is for maintainers publishing a GitHub release for the UPM package.
 Releases follow [Semantic Versioning](https://semver.org/) and are produced by
 the [Publish Release workflow](workflows/release.yml).
 
-`main` contains the simplified status-and-sources implementation; `legacy`
-preserves the former management workflow. Promoting the branch does not publish
-a release. Existing `v0.8.1` tags, OpenUPM packages, and installer artifacts stay
-unchanged. Choose a new version for the first simplified release and verify
-its exact package payload before tagging. The bootstrap installer and its build
+Version `0.9.0` introduces the renamed package and simplified status-and-sources
+implementation; `legacy` preserves the former management workflow. Existing
+`v0.8.1` tags, OpenUPM packages, and installer artifacts stay unchanged.
+Verify the exact package payload before tagging each release. The bootstrap installer and its build
 tools are preserved on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
 Current releases publish the UPM archive and its checksum manifest.
 
@@ -105,6 +104,13 @@ Initial registration is mandatory; the OpenUPM action cannot register a new
 package. GitHub Release tracking makes OpenUPM publish the signed release asset
 unchanged. Refer to OpenUPM's
 [signed-package guide](https://openupm.com/docs/signing-upm-packages).
+
+For the `0.9.0` rename, the OpenUPM metadata file and `name` must use
+`com.martincalander.githubpackagemanager`, with
+`com.martincalander.gitsubmodulemanager` in `aliases` and `minVersion: '0.9.0'`.
+Use the new repository URL, release asset prefix, display name, and cover image.
+The alias redirects the old website page only; consumers must change their
+manifest dependency key. Existing published versions remain immutable.
 
 ## Tag and Publish
 

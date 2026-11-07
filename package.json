@@ -1,6 +1,6 @@
 {
   "name": "com.martincalander.githubpackagemanager",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "displayName": "Github Package Manager",
   "description": "Show installed package sources and Git submodule status in Unity Package Manager.",
   "unity": "6000.3",

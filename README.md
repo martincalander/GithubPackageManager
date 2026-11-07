@@ -49,10 +49,18 @@ The Git URL follows the current `main` branch. Local checkouts and submodule
 installations are covered in the
 [installation guide](Documentation~/installation.md).
 
-The simplified version on `main` has not been published as a new release yet.
-Existing `0.8.1` downloads, OpenUPM packages, and the legacy bootstrap contain
-the earlier workflow. Use the Git URL above or a current local checkout for the
-simplified version, including Unity 7.
+Version `0.9.0` introduces the renamed package and simplified workflow.
+For a signed registry release, use
+[OpenUPM](https://openupm.com/packages/com.martincalander.githubpackagemanager/):
+
+```bash
+openupm add com.martincalander.githubpackagemanager
+```
+
+Existing `0.8.1` downloads and the legacy bootstrap contain the earlier workflow
+under the old package name. Follow the
+[migration instructions](Documentation~/installation.md#migrating-from-earlier-package-names)
+when updating an existing installation.
 
 The old bootstrap installer is preserved on `legacy`. Current `main` uses
 standard UPM installation and no longer builds a separate installer.
