@@ -56,8 +56,8 @@ been published as a new release; existing `0.8.1` artifacts remain unchanged.
   `martincalander/Githubpackagemanager`. Update assembly names, namespaces,
   integration IDs, documentation, and release tooling. Preserve asset GUIDs
   and the audited third-party DLL bytes while renaming their filenames.
-- Replace the README cover, repository social preview, and native sidebar
-  icons with the updated Figma artwork.
+- Replace the README cover and repository social preview with the updated
+  Figma artwork. Keep the original theme-specific icons under **Sources > GitHub**.
 - Recover saved Package Manager selections that used the earlier extension
   IDs. See the [migration instructions](Documentation~/installation.md#migrating-from-earlier-package-names)
   before updating an existing installation.

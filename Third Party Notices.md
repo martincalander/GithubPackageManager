@@ -122,9 +122,9 @@ SOFTWARE.
 - Source: [Git logo downloads](https://git-scm.com/community/logos)
 - License: [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/)
 - Use: the cover adapts the official mark into artwork for repository
-  documentation. The box-and-Git artwork is exported from Martin Calander's
-  Figma design and also appears in the Package Manager GitHub Sources row
-  in both Editor skins.
+  documentation. The cover and social preview use the box-and-Git artwork
+  exported from Martin Calander's Figma design. The Package Manager GitHub
+  Sources row retains the original one-color variants for dark and light skins.
 
 ## External Tools
 
