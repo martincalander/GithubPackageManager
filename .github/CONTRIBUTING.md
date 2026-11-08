@@ -135,6 +135,23 @@ Github Package Manager was created by Martin Calander. Contributors retain
 authorship of their contributions; the combined project is distributed under
 the [MIT License](../LICENSE.md).
 
+## Release Lifecycle Test Correction on 2026-11-08
+
+Unity `7000.0.0a16` can replace the native Package Manager window while changing
+Play mode layouts. The lifecycle tests retained the old detached window and
+inspected its stale sidebar. Waiting on that instance could never attach it.
+The tests now locate the live window with an attached Sources group after each
+transition, and cleanup follows that current instance. They also use
+`EnterPlayMode(expectDomainReload: false)` and assert that Play mode was entered
+and exited. The two-cycle checks, static-state identity assertions, Harmony
+checks, duplicate-row assertions, and deletion guards remain intact.
+
+Both `PlayModeLifecycle` tests passed in the clean macOS ARM64 validation
+project on Unity `7000.0.0a16` (`0745a91df592`), Unity CLI `1.0.0-beta.17`, and
+Pipeline `0.10.0-exp.1`. The release notes record the final full-assembly result,
+exact release commit, and signed archive verification. This correction changes
+test setup and assertions only; it does not change package runtime behavior.
+
 ## OpenUPM Release Preparation on 2026-11-08
 
 Release preparation at `c0dae02` was checked in a clean macOS ARM64 project
@@ -153,8 +170,8 @@ source coverage.
 - The two `PlayModeLifecycle` checks still failed. Diagnostics observed a
   detached Package Manager panel during the checks, with duplicate rows or
   unavailable native sidebar state. Unity's native command-line test runner
-  also failed both cases. The cause is not resolved, so these are not passing
-  release evidence.
+  also failed both cases. These failed preparation runs are historical evidence;
+  the correction above addresses the stale window reference.
 - An intermediate full rerun and a follow-up async run were canceled while
   isolating the window setup; neither is counted as validation.
 - Repository validation, eight Python tests, Markdown lint, Actionlint, the

@@ -250,7 +250,8 @@ namespace MartinCalander.GithubPackageManager.Editor.Tests
                 if (candidate.GetType() == windowType)
                     window = candidate;
             bool ownsWindow = window == null;
-            window = window != null ? window : EditorWindow.GetWindow(windowType);
+            if (ownsWindow)
+                UnityEditor.PackageManager.UI.Window.Open(null);
             PackageManagerPackageStatus.Retain();
             restorePlayModeState = () =>
             {
@@ -264,7 +265,7 @@ namespace MartinCalander.GithubPackageManager.Editor.Tests
             {
                 EditorSettings.enterPlayModeOptionsEnabled = true;
                 EditorSettings.enterPlayModeOptions = playModeOptions;
-                yield return null;
+                yield return WaitForLivePackageManagerWindow(windowType, current => window = current);
                 var initialRoot = PackageManagerSubmoduleHarmonyPatch.Read(window, "m_Root") as VisualElement;
                 Assert.That(initialRoot, Is.Not.Null);
                 GithubPackageManagerPackageManagerHost.ObserveRoot(initialRoot);
@@ -276,7 +277,8 @@ namespace MartinCalander.GithubPackageManager.Editor.Tests
                 Assert.That(initialHarmony, Is.Not.Null);
                 for (int cycle = 0; cycle < 2; cycle++)
                 {
-                    yield return new EnterPlayMode();
+                    yield return new EnterPlayMode(expectDomainReload: false);
+                    Assert.That(EditorApplication.isPlaying, Is.True);
                     Assert.That(stateField.GetValue(null), Is.SameAs(initialState),
                         "Editor package observations must survive a Play mode transition without a fresh code load.");
                     Assert.That(harmonyField.GetValue(null), Is.SameAs(initialHarmony),
@@ -285,10 +287,13 @@ namespace MartinCalander.GithubPackageManager.Editor.Tests
                     Assert.That(PackageManagerSubmoduleHarmonyPatch.IsPatched(
                         PackageManagerSubmoduleHarmonyPatch.FindMethod("PackageOperationDispatcher", "RemoveEmbedded", typeof(void), "IPackage")), Is.True);
                     yield return new ExitPlayMode();
+                    Assert.That(EditorApplication.isPlaying, Is.False);
                     Assert.That(stateField.GetValue(null), Is.SameAs(initialState));
                     Assert.That(harmonyField.GetValue(null), Is.SameAs(initialHarmony));
                     Assert.That(PackageManagerSubmoduleNativePage.IsSupportedContract(out error), Is.True, error);
                     Assert.That(PackageManagerSubmoduleHarmonyPatch.IsSidebarRepairInstalled, Is.True);
+                    // Unity can replace the native window while switching Play mode layouts.
+                    yield return WaitForLivePackageManagerWindow(windowType, current => window = current);
                     var root = PackageManagerSubmoduleHarmonyPatch.Read(window, "m_Root") as VisualElement;
                     VisualElement sidebar = FindSidebar(root);
                     Assert.That(sidebar, Is.Not.Null);
@@ -360,6 +365,32 @@ namespace MartinCalander.GithubPackageManager.Editor.Tests
                     return sidebar;
             }
             return null;
+        }
+
+        private static IEnumerator WaitForLivePackageManagerWindow(Type windowType, Action<EditorWindow> found)
+        {
+            double deadline = EditorApplication.timeSinceStartup + 10;
+            while (EditorApplication.timeSinceStartup < deadline)
+            {
+                foreach (EditorWindow candidate in Resources.FindObjectsOfTypeAll<EditorWindow>())
+                {
+                    if (candidate.GetType() != windowType)
+                        continue;
+                    var root = PackageManagerSubmoduleHarmonyPatch.Read(candidate, "m_Root") as VisualElement;
+                    VisualElement sidebar = FindSidebar(root);
+                    if (root?.panel == null || sidebar == null)
+                        continue;
+                    var sourceRow = sidebar.GetType().GetMethod("GetRow",
+                        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+                        null, new[] { typeof(string) }, null).Invoke(sidebar, new object[] { "MyAssets" }) as VisualElement;
+                    if (sourceRow?.parent == null)
+                        continue;
+                    found(candidate);
+                    yield break;
+                }
+                yield return null;
+            }
+            Assert.Fail("The live Package Manager window and Sources group did not attach within ten seconds.");
         }
 
         private static void CollectGitHubRows(VisualElement element, List<VisualElement> rows)

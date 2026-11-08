@@ -30,13 +30,21 @@ workspace and leave `Packages/packages-lock.json` untracked.
 
 ## Install from OpenUPM
 
-The renamed `0.9.0` release is being prepared and is not available on OpenUPM yet.
-The [metadata request](https://github.com/openupm/openupm/pull/7200) keeps signed
+Version `0.9.0` introduces the renamed package. The
+[metadata request](https://github.com/openupm/openupm/pull/7200) keeps signed
 GitHub Release tracking, changes the archive prefix, and adds a redirect from
-the old package page. Publication requires passing release validation and the
-metadata request to be merged. Use the Git installation above in the meantime.
+the old package page. Registry publication requires that request to be merged.
+Use the Git installation above while publication is pending, or install the
+signed `.tgz` from [GitHub Releases](https://github.com/martincalander/Githubpackagemanager/releases)
+with Package Manager's **Install package from tarball...** action.
 
 Once published, install `com.martincalander.githubpackagemanager` from OpenUPM.
+With [OpenUPM CLI](https://openupm.com/docs/getting-started-cli/) installed, run:
+
+```bash
+openupm add com.martincalander.githubpackagemanager
+```
+
 If upgrading from an earlier package name, remove that dependency first as
 described in [migration](#migrating-from-earlier-package-names). The planned page
 redirect does not change dependency keys in existing manifests.
@@ -173,7 +181,7 @@ are in the [legacy installation guide](https://github.com/martincalander/Githubp
 The old bootstrap rejects Unity 7 and is preserved with its build tools on
 [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
 It is no longer included or built on `main`. Use the standard Git installation
-above for the simplified Unity 7 integration until the renamed release is published. Signed release tarballs contain
+above or the renamed signed release for the simplified Unity 7 integration. Signed release tarballs contain
 a release-only attestation; Git and local-folder installs use source without
 that attestation.
 

@@ -13,9 +13,8 @@ Github Package Manager now provides installed package status, sources, direct su
 installation, safe fast-forward updates, and safe removal. The former `main`
 with discovery and package-management workflows is preserved on
 [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
-Version `0.9.0` is being prepared but has not been tagged or published. Release
-validation is recorded in the contribution guide. Existing `0.8.1` artifacts
-retain the previous package name and implementation.
+Release validation is recorded in the contribution guide and release notes.
+Existing `0.8.1` artifacts retain the previous package name and implementation.
 
 ### Added
 
@@ -37,8 +36,8 @@ retain the previous package name and implementation.
   suffix, retaining the existing Unity 6 targets and independent runtime checks
   for each native feature. New alpha numbers no longer need an explicit package
   update. Exact tested revisions and platforms remain recorded separately in
-  the contribution guide. Unity 7 requires a current Git dependency or local
-  checkout until `0.9.0` is published; existing `0.8.1` artifacts retain their earlier version gate.
+  the contribution guide. Unity 7 requires `0.9.0` or a current Git dependency
+  or local checkout; existing `0.8.1` artifacts retain their earlier version gate.
 
 - Add **Repository** as the first link in Unity's native Documentation,
   Changelog, and Licenses row when the installed package has a safe repository
@@ -160,6 +159,10 @@ retain the previous package name and implementation.
   catalogue filters and caches.
 
 ### Fixed
+
+- Keep lifecycle tests on the live Package Manager window when Unity replaces
+  it during Play mode layout changes. Match the test runner's reload expectation
+  to disabled domain reload and verify that each Play mode transition occurred.
 
 - Keep native refresh callbacks isolated from failing page identity getters,
   and stop refreshing an old page after its Package Manager has been replaced.
