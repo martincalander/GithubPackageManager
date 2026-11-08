@@ -49,13 +49,11 @@ The Git URL follows the current `main` branch. Local checkouts and submodule
 installations are covered in the
 [installation guide](Documentation~/installation.md).
 
-Version `0.9.0` introduces the renamed package and simplified workflow.
-For a signed registry release, use
-[OpenUPM](https://openupm.com/packages/com.martincalander.githubpackagemanager/):
-
-```bash
-openupm add com.martincalander.githubpackagemanager
-```
+Version `0.9.0` is being prepared for the renamed package and simplified workflow.
+The [OpenUPM rename request](https://github.com/openupm/openupm/pull/7200) updates
+the package ID, repository, cover, and old-page redirect. It is not live yet;
+release validation must finish before the signed archive is published.
+Use the Git URL above for the current implementation.
 
 Existing `0.8.1` downloads and the legacy bootstrap contain the earlier workflow
 under the old package name. Follow the

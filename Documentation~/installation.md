@@ -30,20 +30,16 @@ workspace and leave `Packages/packages-lock.json` untracked.
 
 ## Install from OpenUPM
 
-Version `0.9.0` introduces `com.martincalander.githubpackagemanager` and the
-simplified workflow. OpenUPM distributes the signed GitHub Release archive.
-With [OpenUPM CLI](https://openupm.com/docs/getting-started-cli/) installed, run
-this from your Unity project folder:
+The renamed `0.9.0` release is being prepared and is not available on OpenUPM yet.
+The [metadata request](https://github.com/openupm/openupm/pull/7200) keeps signed
+GitHub Release tracking, changes the archive prefix, and adds a redirect from
+the old package page. Publication requires passing release validation and the
+metadata request to be merged. Use the Git installation above in the meantime.
 
-```bash
-openupm add com.martincalander.githubpackagemanager
-```
-
-For Unity's scoped registry setup, follow the
-[package page](https://openupm.com/packages/com.martincalander.githubpackagemanager/).
+Once published, install `com.martincalander.githubpackagemanager` from OpenUPM.
 If upgrading from an earlier package name, remove that dependency first as
-described in [migration](#migrating-from-earlier-package-names). The old OpenUPM
-page redirects to the new page, but existing manifests must use the new ID.
+described in [migration](#migrating-from-earlier-package-names). The planned page
+redirect does not change dependency keys in existing manifests.
 Existing `0.8.1` packages, release tarballs, and bootstrap downloads retain the
 earlier name and workflow.
 
@@ -170,7 +166,6 @@ are in the [legacy installation guide](https://github.com/martincalander/Githubp
 | Source | Contents |
 | --- | --- |
 | Git URL ending in `#main` or a current checkout | Status, sources, direct install, update, and removal |
-| `com.martincalander.githubpackagemanager` OpenUPM `0.9.0` or signed release `.tgz` | Renamed package with status, sources, direct install, update, and removal |
 | Git URL ending in `#legacy` | Former `main` with the fuller management workflow |
 | `v0.8.1` Git tag, OpenUPM `0.8.1`, or signed release `.tgz` | Published earlier workflow |
 | `GitSubmoduleManagerInstaller-0.8.1.unitypackage` | Bootstrap for the earlier OpenUPM release |
@@ -178,7 +173,7 @@ are in the [legacy installation guide](https://github.com/martincalander/Githubp
 The old bootstrap rejects Unity 7 and is preserved with its build tools on
 [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
 It is no longer included or built on `main`. Use the standard Git installation
-or the renamed OpenUPM package for the simplified Unity 7 integration. Signed release tarballs contain
+above for the simplified Unity 7 integration until the renamed release is published. Signed release tarballs contain
 a release-only attestation; Git and local-folder installs use source without
 that attestation.
 

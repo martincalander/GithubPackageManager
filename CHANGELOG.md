@@ -13,8 +13,9 @@ Github Package Manager now provides installed package status, sources, direct su
 installation, safe fast-forward updates, and safe removal. The former `main`
 with discovery and package-management workflows is preserved on
 [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
-Local validation is recorded in the contribution guide. Existing `0.8.1`
-artifacts retain the previous package name and implementation.
+Version `0.9.0` is being prepared but has not been tagged or published. Release
+validation is recorded in the contribution guide. Existing `0.8.1` artifacts
+retain the previous package name and implementation.
 
 ### Added
 
@@ -36,8 +37,8 @@ artifacts retain the previous package name and implementation.
   suffix, retaining the existing Unity 6 targets and independent runtime checks
   for each native feature. New alpha numbers no longer need an explicit package
   update. Exact tested revisions and platforms remain recorded separately in
-  the contribution guide. Unity 7 requires `0.9.0` or a current Git dependency
-  or local checkout; published `0.8.1` artifacts retain their earlier version gate.
+  the contribution guide. Unity 7 requires a current Git dependency or local
+  checkout until `0.9.0` is published; existing `0.8.1` artifacts retain their earlier version gate.
 
 - Add **Repository** as the first link in Unity's native Documentation,
   Changelog, and Licenses row when the installed package has a safe repository

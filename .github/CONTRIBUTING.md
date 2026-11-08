@@ -135,6 +135,38 @@ Github Package Manager was created by Martin Calander. Contributors retain
 authorship of their contributions; the combined project is distributed under
 the [MIT License](../LICENSE.md).
 
+## OpenUPM Release Preparation on 2026-11-08
+
+Release preparation at `c0dae02` was checked in a clean macOS ARM64 project
+with Unity `7000.0.0a16` (`0745a91df592`), Unity CLI `1.0.0-beta.17`, and
+Pipeline `0.10.0-exp.1`. The project imported the exact npm package payload,
+then used the same commit as a submodule with a Git UPM dependency for native
+source coverage.
+
+- Import and fresh compilation passed. All 102 packaged files matched the
+  source archive after import.
+- The first full Editor assembly run passed 501 of 506 tests, with five
+  failures and no skipped tests. The clean setup initially lacked the Git
+  dependency required by Repository-link coverage.
+- With that dependency installed and Package Manager initialized, all 123
+  `PackageManagerCompatibility` tests passed.
+- The two `PlayModeLifecycle` checks still failed. Diagnostics observed a
+  detached Package Manager panel during the checks, with duplicate rows or
+  unavailable native sidebar state. Unity's native command-line test runner
+  also failed both cases. The cause is not resolved, so these are not passing
+  release evidence.
+- An intermediate full rerun and a follow-up async run were canceled while
+  isolating the window setup; neither is counted as validation.
+- Repository validation, eight Python tests, Markdown lint, Actionlint, the
+  package dry run, and whitespace checks passed. GitHub's required sanity gate,
+  Linux/macOS/Windows portability checks, and CodeQL passed for `c0dae02`.
+- The OpenUPM metadata rename passed all 28 local data tests and upstream
+  Data validation in [PR #7200](https://github.com/openupm/openupm/pull/7200).
+
+No `v0.9.0` tag, signed archive, or new registry version was published. Temporary
+test diagnostics and attempted window-wait changes were discarded. Other Unity
+versions, Windows/Linux Editor tests, and player builds were not run.
+
 ## Package Rename Verification on 2026-11-08
 
 The rename to Github Package Manager was checked on macOS ARM64 with Unity

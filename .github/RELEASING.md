@@ -4,8 +4,10 @@ This guide is for maintainers publishing a GitHub release for the UPM package.
 Releases follow [Semantic Versioning](https://semver.org/) and are produced by
 the [Publish Release workflow](workflows/release.yml).
 
-Version `0.9.0` introduces the renamed package and simplified status-and-sources
-implementation; `legacy` preserves the former management workflow. Existing
+Version `0.9.0` is being prepared for the renamed package and simplified
+status-and-sources implementation. It has not been tagged or published;
+the current validation blocker is recorded in [CONTRIBUTING.md](CONTRIBUTING.md#openupm-release-preparation-on-2026-11-08).
+The `legacy` branch preserves the former management workflow. Existing
 `v0.8.1` tags, OpenUPM packages, and installer artifacts stay unchanged.
 Verify the exact package payload before tagging each release. The bootstrap installer and its build
 tools are preserved on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
@@ -111,6 +113,8 @@ For the `0.9.0` rename, the OpenUPM metadata file and `name` must use
 Use the new repository URL, release asset prefix, display name, and cover image.
 The alias redirects the old website page only; consumers must change their
 manifest dependency key. Existing published versions remain immutable.
+The metadata changes are prepared in [OpenUPM PR #7200](https://github.com/openupm/openupm/pull/7200).
+Keep that request in draft until the first renamed signed release exists.
 
 ## Tag and Publish
 
