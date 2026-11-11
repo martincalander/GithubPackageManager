@@ -5,9 +5,9 @@
   "description": "Show installed package sources and Git submodule status in Unity Package Manager.",
   "unity": "6000.3",
   "unityRelease": "22f1",
-  "documentationUrl": "https://github.com/martincalander/Githubpackagemanager/blob/main/Documentation~/index.md",
-  "changelogUrl": "https://github.com/martincalander/Githubpackagemanager/blob/main/CHANGELOG.md",
-  "licensesUrl": "https://github.com/martincalander/Githubpackagemanager/blob/main/LICENSE.md",
+  "documentationUrl": "https://github.com/martincalander/GithubPackageManager/blob/main/Documentation~/index.md",
+  "changelogUrl": "https://github.com/martincalander/GithubPackageManager/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/martincalander/GithubPackageManager/blob/main/LICENSE.md",
   "license": "MIT",
   "keywords": [
     "GitHub",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/martincalander/Githubpackagemanager.git"
+    "url": "https://github.com/martincalander/GithubPackageManager.git"
   },
   "bugs": {
-    "url": "https://github.com/martincalander/Githubpackagemanager/issues"
+    "url": "https://github.com/martincalander/GithubPackageManager/issues"
   },
   "dependencies": {
     "com.unity.modules.uielements": "1.0.0"

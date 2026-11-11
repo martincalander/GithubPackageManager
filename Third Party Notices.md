@@ -59,7 +59,7 @@ change the assembly identity.
 #### CoreCLR Artifact Provenance
 
 The DLLs are extracted from the exact official NuGet packages above. The
-[artifact manifest](https://github.com/martincalander/Githubpackagemanager/blob/main/.github/scripts/coreclr_harmony_artifacts.json)
+[artifact manifest](https://github.com/martincalander/GithubPackageManager/blob/main/.github/scripts/coreclr_harmony_artifacts.json)
 records download URLs, archive SHA-256 values, source paths, and DLL SHA-256
 values. Repository validation checks the packaged DLL hashes and importer
 constraints.

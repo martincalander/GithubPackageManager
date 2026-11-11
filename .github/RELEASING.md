@@ -10,7 +10,7 @@ status-and-sources implementation. The lifecycle test correction is recorded in
 The `legacy` branch preserves the former management workflow. Existing
 `v0.8.1` tags, OpenUPM packages, and installer artifacts stay unchanged.
 Verify the exact package payload before tagging each release. The bootstrap installer and its build
-tools are preserved on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
+tools are preserved on [`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy/Installer~).
 Current releases publish the UPM archive and its checksum manifest.
 
 ## Release Authority
@@ -93,7 +93,7 @@ For the first publication:
 1. publish the first signed GitHub Release normally;
 2. submit the package through [OpenUPM Add Package](https://openupm.com/packages/add/);
 3. verify its `repoUrl` is the canonical public repository
-   `https://github.com/martincalander/Githubpackagemanager`;
+   `https://github.com/martincalander/GithubPackageManager`;
 4. ensure the generated metadata uses `trackingMode: githubRelease` and the
    stable asset prefix
    `githubReleaseAssetName: 'com.martincalander.githubpackagemanager-'`;
@@ -167,7 +167,7 @@ immutable release.
 - Install the tag from a clean Unity project:
 
   ```text
-  https://github.com/martincalander/Githubpackagemanager.git#v<new-package-version>
+  https://github.com/martincalander/GithubPackageManager.git#v<new-package-version>
   ```
 
 - Confirm the package imports, **Package Manager > Sources > GitHub** opens, and
