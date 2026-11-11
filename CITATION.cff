@@ -5,6 +5,6 @@ type: software
 authors:
   - family-names: Calander
     given-names: Martin
-repository-code: https://github.com/martincalander/Githubpackagemanager
-url: https://github.com/martincalander/Githubpackagemanager
+repository-code: https://github.com/martincalander/GithubPackageManager
+url: https://github.com/martincalander/GithubPackageManager
 license: MIT

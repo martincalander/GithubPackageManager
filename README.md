@@ -8,8 +8,8 @@ See which installed Unity packages are Git submodules and where your packages
 come from, directly in Unity's Package Manager.
 
 <p align="center">
-  <a href="https://github.com/martincalander/Githubpackagemanager/actions/workflows/ci.yml"><img alt="Sanity Checks" src="https://github.com/martincalander/Githubpackagemanager/actions/workflows/ci.yml/badge.svg"></a>
-  <a href="https://github.com/martincalander/Githubpackagemanager/releases"><img alt="Published release" src="https://img.shields.io/github/v/release/martincalander/Githubpackagemanager"></a>
+  <a href="https://github.com/martincalander/GithubPackageManager/actions/workflows/ci.yml"><img alt="Sanity Checks" src="https://github.com/martincalander/GithubPackageManager/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/martincalander/GithubPackageManager/releases"><img alt="Published release" src="https://img.shields.io/github/v/release/martincalander/GithubPackageManager"></a>
   <img alt="Editor only" src="https://img.shields.io/badge/scope-Editor%20only-555">
   <a href="LICENSE.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue"></a>
 </p>
@@ -17,7 +17,7 @@ come from, directly in Unity's Package Manager.
 `main` provides **installed package status and sources**, plus direct submodule
 installation, update, and removal in Package Manager. The previous manager, including
 remote discovery and conversion workflows, is preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy).
 
 ## What You Get
 
@@ -44,7 +44,7 @@ In **Window > Package Management > Package Manager**, choose **+ > Install
 package from git URL...** and enter:
 
 ```text
-https://github.com/martincalander/Githubpackagemanager.git#main
+https://github.com/martincalander/GithubPackageManager.git#main
 ```
 
 The Git URL follows the current `main` branch. Local checkouts and submodule
@@ -53,7 +53,7 @@ installations are covered in the
 
 Version `0.9.0` introduces the renamed package and simplified workflow.
 Signed archives are available from
-[GitHub Releases](https://github.com/martincalander/Githubpackagemanager/releases).
+[GitHub Releases](https://github.com/martincalander/GithubPackageManager/releases).
 The [OpenUPM rename request](https://github.com/openupm/openupm/pull/7200) updates
 the package ID, repository, cover, and old-page redirect. Once that request is
 merged and the registry has published the archive, install with:
@@ -123,14 +123,14 @@ unsupported. The package is Editor-only.
 
 ## Moving from the Earlier Manager
 
-The [`legacy` branch](https://github.com/martincalander/Githubpackagemanager/tree/legacy)
+The [`legacy` branch](https://github.com/martincalander/GithubPackageManager/tree/legacy)
 preserves the former `main` and its fuller management workflow. Existing
 `v0.8.1` releases remain available. Switching to the simplified version leaves
 your installed packages in place, but removes the previous management actions.
 
 Finish pending operations before switching and retain any recovery files until
 you have inspected them. See the [migration guidance](Documentation~/user-guide.md#moving-from-legacy-to-main)
-and [legacy documentation](https://github.com/martincalander/Githubpackagemanager/blob/legacy/Documentation~/index.md).
+and [legacy documentation](https://github.com/martincalander/GithubPackageManager/blob/legacy/Documentation~/index.md).
 
 ## Documentation
 

@@ -21,7 +21,7 @@ The `main` branch develops this focused design. Explicit installation,
 fast-forward updates, and removal of verified submodule packages are its only
 package changes. Conversion and dependency resolution belong to Unity and Git. The former
 management workflows are preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy);
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy);
 published `0.8.1` artifacts still contain that earlier implementation.
 
 ## Roles

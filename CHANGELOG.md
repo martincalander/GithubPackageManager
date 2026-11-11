@@ -16,12 +16,17 @@ and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   unchanged. The command waits for an idle Editor and reports which packages
   moved and between which commits.
 
+### Changed
+
+- Rename the GitHub repository to `martincalander/GithubPackageManager` and
+  update the installation links.
+
 ## [0.9.0] - 2026-11-08
 
 Github Package Manager now provides installed package status, sources, direct submodule
 installation, safe fast-forward updates, and safe removal. The former `main`
 with discovery and package-management workflows is preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy).
 Release validation is recorded in the contribution guide and release notes.
 Existing `0.8.1` artifacts retain the previous package name and implementation.
 
@@ -544,7 +549,7 @@ The exact Git proof sequences and recovery boundaries are documented in the
 ## Development Snapshot - 2026-07-12
 
 The package manifest reported version `1.0.0` at this
-[development snapshot](https://github.com/martincalander/Githubpackagemanager/tree/5644e381f90f883aa9d12bbdca9efbf5c2b2eb05).
+[development snapshot](https://github.com/martincalander/GithubPackageManager/tree/5644e381f90f883aa9d12bbdca9efbf5c2b2eb05).
 No tag or GitHub release was published.
 
 ### Added
@@ -590,8 +595,8 @@ No tag or GitHub release was published.
 - Basic project submodule listing, update, remove, and branch operations.
 - Early GitHub discovery and direct URL installation.
 
-[Unreleased]: https://github.com/martincalander/Githubpackagemanager/compare/v0.9.0...HEAD
-[0.9.0]: https://github.com/martincalander/Githubpackagemanager/compare/v0.8.1...v0.9.0
-[0.8.1]: https://github.com/martincalander/Githubpackagemanager/releases/tag/v0.8.1
-[0.8.0]: https://github.com/martincalander/Githubpackagemanager/releases/tag/v0.8.0
-[0.1.0]: https://github.com/martincalander/Githubpackagemanager/tree/49bac435
+[Unreleased]: https://github.com/martincalander/GithubPackageManager/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/martincalander/GithubPackageManager/compare/v0.8.1...v0.9.0
+[0.8.1]: https://github.com/martincalander/GithubPackageManager/releases/tag/v0.8.1
+[0.8.0]: https://github.com/martincalander/GithubPackageManager/releases/tag/v0.8.0
+[0.1.0]: https://github.com/martincalander/GithubPackageManager/tree/49bac435

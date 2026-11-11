@@ -2,7 +2,7 @@
 
 `main` contains package status, sources, link-based submodule installation,
 safe fast-forward submodule updates, and safe submodule package removal. The former management workflow is preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy).
 
 ## Install from Git
 
@@ -10,7 +10,7 @@ In **Window > Package Management > Package Manager**, choose **+ > Install
 package from git URL...** and enter:
 
 ```text
-https://github.com/martincalander/Githubpackagemanager.git#main
+https://github.com/martincalander/GithubPackageManager.git#main
 ```
 
 The equivalent entry in `Packages/manifest.json` is:
@@ -18,7 +18,7 @@ The equivalent entry in `Packages/manifest.json` is:
 ```json
 {
   "dependencies": {
-    "com.martincalander.githubpackagemanager": "https://github.com/martincalander/Githubpackagemanager.git#main"
+    "com.martincalander.githubpackagemanager": "https://github.com/martincalander/GithubPackageManager.git#main"
   }
 }
 ```
@@ -35,7 +35,7 @@ Version `0.9.0` introduces the renamed package. The
 GitHub Release tracking, changes the archive prefix, and adds a redirect from
 the old package page. Registry publication requires that request to be merged.
 Use the Git installation above while publication is pending, or install the
-signed `.tgz` from [GitHub Releases](https://github.com/martincalander/Githubpackagemanager/releases)
+signed `.tgz` from [GitHub Releases](https://github.com/martincalander/GithubPackageManager/releases)
 with Package Manager's **Install package from tarball...** action.
 
 Once published, install `com.martincalander.githubpackagemanager` from OpenUPM.
@@ -56,7 +56,7 @@ earlier name and workflow.
 Clone the current source into a stable folder:
 
 ```bash
-git clone --branch main https://github.com/martincalander/Githubpackagemanager.git
+git clone --branch main https://github.com/martincalander/GithubPackageManager.git
 ```
 
 In Package Manager, choose **+ > Install package from disk...** and select the
@@ -74,7 +74,7 @@ To install the manager itself initially, use Git:
 From the root of a Git-tracked Unity project, run:
 
 ```bash
-git submodule add -b main https://github.com/martincalander/Githubpackagemanager.git Packages/com.martincalander.githubpackagemanager
+git submodule add -b main https://github.com/martincalander/GithubPackageManager.git Packages/com.martincalander.githubpackagemanager
 ```
 
 This creates an editable embedded package. Review and commit the `.gitmodules`
@@ -165,11 +165,11 @@ Review [CHANGELOG.md](../CHANGELOG.md) before changing versions.
 
 ## Earlier Workflow and Published Releases
 
-Use [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy)
+Use [`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy)
 if you need the previous remote discovery, conversion, or dependency planning
 workflows. It preserves the former `main`; the existing `v0.8.1` release is an
 older tagged snapshot of that product direction. Their installation instructions
-are in the [legacy installation guide](https://github.com/martincalander/Githubpackagemanager/blob/legacy/Documentation~/installation.md).
+are in the [legacy installation guide](https://github.com/martincalander/GithubPackageManager/blob/legacy/Documentation~/installation.md).
 
 | Source | Contents |
 | --- | --- |
@@ -179,7 +179,7 @@ are in the [legacy installation guide](https://github.com/martincalander/Githubp
 | `GitSubmoduleManagerInstaller-0.8.1.unitypackage` | Bootstrap for the earlier OpenUPM release |
 
 The old bootstrap rejects Unity 7 and is preserved with its build tools on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy/Installer~).
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy/Installer~).
 It is no longer included or built on `main`. Use the standard Git installation
 above or the renamed signed release for the simplified Unity 7 integration. Signed release tarballs contain
 a release-only attestation; Git and local-folder installs use source without
@@ -200,7 +200,7 @@ or `com.martincalander.gitpackagemanager` dependency key from
 `Packages/manifest.json` and use:
 
 ```json
-"com.martincalander.githubpackagemanager": "https://github.com/martincalander/Githubpackagemanager.git"
+"com.martincalander.githubpackagemanager": "https://github.com/martincalander/GithubPackageManager.git"
 ```
 
 Let Unity resolve and import the renamed package. Keep only one installation.

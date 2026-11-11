@@ -10,7 +10,7 @@ package links when a safe repository URL is available. Its scope is status
 and sources, with a small Editor footprint. The native plus menu accepts a
 repository link, Unity's native Git update action updates a verified submodule
 package, and the native removal action removes one. It does not discover remote repositories or plan dependencies. The former management implementation is preserved
-on [`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
+on [`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy).
 
 ```text
 Editor/

@@ -5,7 +5,7 @@ make installed submodules and GitHub packages easy to find in Unity's native
 Package Manager.
 The `main` branch develops this status and sources view. The former management
 workflows are preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy).
 
 ## Current Priorities
 

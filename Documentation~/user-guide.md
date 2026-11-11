@@ -197,7 +197,7 @@ and does not change the project's Enter Play Mode settings.
 
 The former remote catalogue, install and conversion actions, dependency planning,
 Welcome window, and Preferences page are preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy).
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy).
 Published `0.8.1` artifacts also contain that earlier workflow. On `main`, the
 manager reads installed state and provides direct link installation, update,
 and safe removal. It does not restore the legacy catalogue or conversion workflows.

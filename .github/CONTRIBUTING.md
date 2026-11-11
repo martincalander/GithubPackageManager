@@ -9,7 +9,7 @@ reliable, or less expensive to run. Direct link installation and safe submodule
 package removal also live in the native Package Manager. Conversion, dependency
 planning, and remote catalogue discovery remain outside the current product
 scope. The former implementation is preserved on
-[`legacy`](https://github.com/martincalander/Githubpackagemanager/tree/legacy);
+[`legacy`](https://github.com/martincalander/GithubPackageManager/tree/legacy);
 published `0.8.1` artifacts still contain that implementation.
 
 ## Development Prerequisites
