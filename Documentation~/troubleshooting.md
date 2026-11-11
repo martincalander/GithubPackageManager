@@ -118,6 +118,18 @@ If the error reports that the checkout was left for review, it names the
 previous commit. Inspect the checkout with `git status` and `git log` before
 moving it back with Git.
 
+## Update Git Packages Changed Nothing
+
+**Window > Package Management > Update Git Packages** reports when every Git
+dependency is already at the newest commit of its manifest reference. A
+dependency whose URL ends in a commit hash or a tag cannot move. Submodule
+and embedded packages under `Packages/` are not Git dependencies; update a
+submodule from its **Manage** menu.
+
+If the command asks you to wait, let Unity finish importing and compiling and
+choose it again. Fetch failures are listed in the message and in the Console;
+check the repository URL and your Git credentials.
+
 ## An Install or Removal Did Not Finish
 
 Read the error's recovery path before retrying. Current operations retain files

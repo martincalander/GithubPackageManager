@@ -100,6 +100,29 @@ a clean checkout is restored to its previous commit; otherwise the checkout is
 left for review and the previous commit is reported. A package that is already
 current is reported without changes.
 
+### Update Git Packages
+
+Choose **Window > Package Management > Update Git Packages** to fetch every
+direct Git dependency in `Packages/manifest.json` again. Each one moves to the
+newest commit of the reference already written in the manifest: the named
+branch or tag, or the repository's default branch when none is named. A
+dependency pinned to a commit stays on that commit.
+
+The command changes Git dependencies only. Registry packages, embedded
+packages, submodules, and the text of the manifest are left as they are. With
+a lockfile enabled, only the entries of the Git dependencies are refreshed;
+review that change before committing it. With the lockfile disabled there is
+no file to review.
+
+The update starts only while the Editor is idle. During Play mode, importing,
+compiling, or another package operation, a message asks you to try again. When
+it finishes, the Console lists each package that moved with its previous and
+new commit. A message reports when every package was already current, and
+any package Unity could not fetch is listed as a problem.
+
+Use **Manage > Update** for a submodule package instead; this command does not
+change submodules.
+
 ### Remove a Submodule Package
 
 Select an installed submodule and use **Remove**, then confirm the removal.

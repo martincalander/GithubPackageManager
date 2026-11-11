@@ -7,6 +7,15 @@ and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add **Window > Package Management > Update Git Packages**. It fetches every
+  direct Git dependency in `Packages/manifest.json` again and moves each one
+  to the newest commit of its existing reference, with or without a lockfile.
+  Registry packages, other locked versions, and the manifest text are left
+  unchanged. The command waits for an idle Editor and reports which packages
+  moved and between which commits.
+
 ## [0.9.0] - 2026-11-08
 
 Github Package Manager now provides installed package status, sources, direct submodule

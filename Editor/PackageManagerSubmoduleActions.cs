@@ -271,6 +271,7 @@ namespace MartinCalander.GithubPackageManager.Editor
         private static bool CanStart()
         {
             string reason = IsBusy ? "Wait for the current submodule operation to finish." :
+                GitPackageUpdates.IsBusy ? "Wait for the Git package update to finish." :
                 EditorApplication.isPlayingOrWillChangePlaymode ? "Exit Play mode before changing package submodules." :
                 EditorApplication.isCompiling || EditorApplication.isUpdating ? "Wait for Unity to finish importing and compiling." : null;
             if (reason == null)

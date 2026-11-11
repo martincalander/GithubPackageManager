@@ -30,6 +30,8 @@ Editor/
 │                               explicit Git install, update, and removal
 ├── PackageManifestDocument.cs
 │                               manifest validation and dependency edits
+├── GitPackageUpdates.cs
+│                               Update Git Packages menu command
 └── PackageManagerSubmoduleHarmonyPatch.cs
                                 native labels and embedded-removal protection
 ```
@@ -236,6 +238,22 @@ Hidden index flags and repositories with additional worktrees are refused.
 Manifest edits use an atomic replacement with a backup of the actual previous
 file, preserving concurrent edits for recovery. The operation lock coordinates
 this service, but cannot prevent an independent Git client from changing files.
+
+**Window > Package Management > Update Git Packages** refreshes UPM Git
+dependencies, which are separate from submodules. It reads Unity's registered
+packages and selects direct dependencies whose source is Git, taking each
+reference from the package ID. It then asks Unity to add those unchanged
+references again in one request, so Unity fetches them and the manifest text
+stays the same. The package runs no Git command and edits no file for this
+action; a lockfile, when enabled, is rewritten by Unity for those entries only.
+The command uses a public menu attribute and public Package Manager API, with
+no reflection or Harmony seam. It starts only while the Editor is idle and
+holds the reload and refresh locks until the request completes. Unity's reply
+reports the fetched commits, but the Editor keeps the previous package folders
+until a resolve applies them, so the command requests one resolve after
+releasing the locks. The summary compares commit hashes before and after and
+reports packages that are missing, no longer resolved from Git, or in error.
+It and the submodule operations exclude each other.
 
 The UI owns the operation lifetime, runs Git work off the main thread, and
 requests Unity package resolution after mutation. A missing native add-menu

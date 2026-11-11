@@ -29,6 +29,8 @@ remote discovery and conversion workflows, is preserved on
 - **+ > Install package as Git submodule...** to install from a Git repository URL.
 - **Manage > Update** to move a clean submodule package to the latest commit on
   its tracked branch and stage the new gitlink.
+- **Window > Package Management > Update Git Packages** to fetch the newest
+  commit of every Git dependency in the project manifest and report what moved.
 - Submodule removal that removes the package and its Git registration together,
   while protecting local changes and unpublished commits.
 
